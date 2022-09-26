@@ -1,4 +1,11 @@
-# 로그스태시 1. @timestamp
+---
+title: 로그스태시 1. @timestamp
+categories: [Elastic]
+---
+
+> elasticsearch : v 8.4.1
+> logstash : v 8.4.1
+> kibana : v 8.4.1
 
 Kafka topic에서 가져온 Log data를 Elasticsearch에 넣는 과정에서 @timestamp가 UTC 기준으로 되어있다는 것을 알아챘다.
 로그 스태시는 default로 UTC 시간을 @timestamp에 표시하게 되어잇는데 한국 시간 대비 9시간 전 시간이 나타난다.
