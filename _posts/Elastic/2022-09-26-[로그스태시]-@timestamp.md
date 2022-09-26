@@ -22,11 +22,12 @@ Kafka topic에서 가져온 Log data를 Elasticsearch에 넣는 과정에서 @ti
 
 ### 3. 세번째 시도
  내가 @timestamp를 건든 이유는 kibana에서 시각화하여 시계열로 로그데이터를 분석하기 위함이다.
-내 목적에만 충실히 집중했을때, kibana에서 @timestamp가 KTC로 표시만 된다면 Elasticsearch에 UTC로 찍히는 것은 아무런 문제가 되지 않는다.
+이 목적에만 충실하자면, kibana에서 @timestamp가 KTC로 표시만 된다면 Elasticsearch에 UTC로 찍히는 것은 아무런 문제가 되지 않는다.
 그래서 kibana 설정에서 timezone의 값을 Asia/Seoul로 바꿔주었더니 kibana로 시각화 할때는 @timestamp의 값이 저절로 9시간이 더해진 값 즉 KCT로 표시되는 것을 확인 할 수 있엇다.
 
 
-사실 엄청 간단한 문제일 것이라 생각 했는데 logstash 상에서 UTC를 KTC로 바꾸는 방법은 찾지 못했다.
+사실 엄청 간단한 문제일 것이라 생각 했는데 logstash 상에서 UTC를 KTC로 바꾸는 방법은 찾지 못했다. 어떠한 방식이든 결국 elasticsearch에는 UTC로 timestamp가 찍혔다.
 kibana의 timeznoe 값을 바꾸는 것도 사실 일찍이 찾았지만 임시 방편이라고 생각해 뒤로 미뤄두었는데
 logstash 상에서 KCT로 바꾸는 법을 못 찾았기 때문에 불가피하게 Kibana의 설정을 건들 수 밖에 없었다.
+오늘 이후에라도, 관련한 해답을 찾는다면 후술하도록 하겠다.
 
