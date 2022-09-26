@@ -3,9 +3,9 @@ title: 로그스태시 1. @timestamp
 categories: [Elastic]
 ---
 
-> elasticsearch : v 8.4.1
-  logstash : v 8.4.1
-  kibana : v 8.4.1
+> elasticsearch : v 8.4.1 \
+> logstash : v 8.4.1 \
+> kibana : v 8.4.1
 
 Kafka topic에서 가져온 Log data를 Elasticsearch에 넣는 과정에서 @timestamp가 UTC 기준으로 되어있다는 것을 알아챘다.
 로그 스태시는 default로 UTC 시간을 @timestamp에 표시하게 되어있는데 한국 시간 대비 9시간 전 시간이 나타난다.
@@ -14,7 +14,7 @@ Kafka topic에서 가져온 Log data를 Elasticsearch에 넣는 과정에서 @ti
 1. 첫번째 시도
 첫 번째로 시도했던 건 단순히 9시간을 더 해주는 것 이였다.
 로그스태시의 data filter로 @timestamp에 0900값을 더해 주었다.
-시간은 9시간이 더해진 값으로 출력이 됐지만 문제는 date type 였던 @timestamp 필드가 string 필드로 바뀌는 것이다.
+시간은 9시간이 더해진 값으로 출력이 됐지만 문제는 date type 였던 @timestamp 필드가 string 필드로 바뀐다는 것이다.
 시계열로 로그데이터를 시각화해야하는 입장에서 용인할 수 없는 부분이여서 다른 방법을 찾아봤다.
 
 2. 두번째 시도
