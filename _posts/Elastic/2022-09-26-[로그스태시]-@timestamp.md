@@ -3,8 +3,8 @@ title: 로그스태시 1. @timestamp
 categories: [Elastic, Logstash]
 ---
 
-> elasticsearch : v 8.4.1
-> logstash : v 8.4.1
+> elasticsearch : v 8.4.1   \
+> logstash : v 8.4.1    \
 > kibana : v 8.4.1
 
 Kafka topic에서 가져온 Log data를 Elasticsearch에 넣는 과정에서 @timestamp가 UTC 기준으로 되어있다는 것을 알아챘다.
