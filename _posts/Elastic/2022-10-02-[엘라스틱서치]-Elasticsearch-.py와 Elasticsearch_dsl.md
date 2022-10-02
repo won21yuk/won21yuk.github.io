@@ -3,8 +3,8 @@ title: 엘라스틱서치 1. 실시간 인기 기업 순위
 categories: [Elastic, Elasticsearch]
 ---
 
-> Elasticsearh : 7.17.6   \
-> Elasticsearch : 7.4.0
+> Elasticsearch : 7.17.6   \
+> Elasticsearch_dsl : 7.4.0
 
 # 1. 개요
 django에서 검색엔진을 구현할 때는 Elasticsaerch 모듈을 사용하고, 검색 랭킹 집계를 구현할 때는 Elasticsearch_dsl을 사용했다.   \
