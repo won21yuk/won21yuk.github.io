@@ -1,5 +1,5 @@
 ---
-title: 엘라스틱서치 1. 실시간 인기 기업 순위
+title: 엘라스틱서치2. Elasticsearch-.py와 Elasticsearch_dsl
 categories: [Elastic, Elasticsearch]
 ---
 
