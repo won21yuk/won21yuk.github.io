@@ -1,5 +1,5 @@
 ---
-title: [하둡] Hadoop Deep Inside - Ch.0 개요
+title: Hadoop Deep Inside - Ch.0 개요
 categories: [Hadoop, Deep Inside]
 ---
 
