@@ -19,7 +19,7 @@ categories: [Hadoop, Deep Inside]
 
 # 1. 왜 하둡인가?
 ![why-hadoop](../images/Why-Hadoop.jpg "why-hadoop?")
-다양한 무료 강의들을 제공해주는 DataFlair라는 사이트에서 하둡을 배워야하는 이유 핵심 이유 11가지를 선정   \
+다양한 무료 강의들을 제공해주는 DataFlair라는 사이트에서 하둡을 배워야하는 핵심 이유 11가지를 선정   \
 이하 내용은 [DataFlair](https://data-flair.training/blogs/why-hadoop/)을 번역하여 요약한 내용
 
 ## 1) 빅데이터 관리(Managing Big Data)
@@ -28,8 +28,15 @@ categories: [Hadoop, Deep Inside]
 강력한 아키텍쳐와 경제적인 기능을 가진 하둡은 방대한 데이터를 저장 및 처리하는데 가장 적합한 도구.
 
 ## 2) 빅데이터 시장의 기하급수적인 성장(Exponential Growth of Big Data Market)
+_Forbes - "하둡 시장은 연 평균 42.1%로 2022년까지 99.31억 달러에 다를 것으로 예측."_
+![Hadoop market](../images/Global-Hadoop-Market.jpg "Global-Hadoop-Market")
+빅데이터 시장이 점점 성장함에 따라 빅데이터 기술에 대한 욕구도 증가. 하둡은 이렇게 생겨난 빅데이터 기술(spark, flink 등)들의 토대를 형성.
+이러한 이유들로 하둡 전문가에 대한 수요가 점차 증가하고 있음.
 
 ## 3) 하둡 전문가의 부족(Lack of Hadoop Professionals)
+하둡 전문가들에 대한 수요는 늘어나고 있지만, 여전히 하둡 전문가의 수는 부족.
+하둡이 기본적으로 소프트웨어로 구성되어 있는 플랫폼인데 단순히 소프트웨어를 안다고 하둡을 잘할 수 있는게 아니라 TA(Technical Architect)
+
 
 ## 4) 모두를 위한 하둡(Hadoop for all)
 
