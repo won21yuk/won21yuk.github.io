@@ -21,7 +21,7 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: 블로그                          # the main title
+title: 일기장 같은 블로그                          # the main title
 
 tagline: Data Engineer가 되는 여정을 담은   # it will display as the sub-title
 
