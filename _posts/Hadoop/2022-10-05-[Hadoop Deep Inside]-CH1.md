@@ -3,7 +3,7 @@ title: Hadoop Deep Inside - Ch.0 개요
 categories: [Hadoop, Deep Inside]
 ---
 
-![하둡](../images/hadoop.jpg)
+![하둡](/images/hadoop.jpg "Hadoop")
 > Hadoop Deep Inside 시리즈는 T-Academy의 하둡강의를 기반으로 진행합니다.   \
 > 이 외에도 하둡 공식홈페이지와 여러 블로그, 커뮤니티들을 참조합니다.   \
 > 또한, Deep Inside 시리즈는 spark, elk stack, kafka 등 사용한 경험이 있는 모든 소프트웨어를 대상으로 확대해 갈 예정입니다.
@@ -19,18 +19,18 @@ categories: [Hadoop, Deep Inside]
 * * *
 
 # 1. 왜 하둡인가?
-![why-hadoop](../images/Why-Hadoop.jpg "why-hadoop?")
+![why-hadoop](/images/Why-Hadoop.jpg "why-hadoop?")
 다양한 무료 강의들을 제공해주는 DataFlair라는 사이트에서 하둡을 배워야하는 핵심 이유 11가지를 선정   \
 이하 내용은 [DataFlair](https://data-flair.training/blogs/why-hadoop/)을 번역하여 요약한 내용
 
 ## 1) 빅데이터 관리(Managing Big Data)
-![Data-Distribution](../images/Growth-of-Unstructured-Data.jpg "Growth-of-Unstructured-Data")
+![Data-Distribution](/images/Growth-of-Unstructured-Data.jpg "Growth-of-Unstructured-Data")
 우리는 데이터 홍수의 시대(2일마다 5엑사바이트의 데이터 생산)에 살고 있으며, 기하급수적으로 증가하는 데이터 양을 관리하기 위한 빅데이터 기술이 필요.
 강력한 아키텍쳐와 경제적인 기능을 가진 하둡은 방대한 데이터를 저장 및 처리하는데 가장 적합한 도구.
 
 ## 2) 빅데이터 시장의 기하급수적인 성장(Exponential Growth of Big Data Market)
 _Forbes - "하둡 시장은 연 평균 42.1%로 2022년까지 99.31억 달러에 다를 것으로 예측."_
-![Hadoop market](../images/Global-Hadoop-Market.jpg "Global-Hadoop-Market")
+![Hadoop market](/images/Global-Hadoop-Market.jpg "Global-Hadoop-Market")
 빅데이터 시장이 점점 성장함에 따라 빅데이터 기술에 대한 욕구도 증가. 하둡은 이렇게 생겨난 빅데이터 기술(spark, flink 등)들의 토대를 형성.
 이러한 이유들로 하둡 전문가에 대한 수요가 점차 증가하고 있음.
 
