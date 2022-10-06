@@ -19,18 +19,24 @@ categories: [Hadoop, Deep Inside]
 * * *
 
 # 1. 왜 하둡인가?
+
 ![why-hadoop](/images/Why-Hadoop.jpg "why-hadoop?")
+
 다양한 무료 강의들을 제공해주는 DataFlair라는 사이트에서 하둡을 배워야하는 핵심 이유 11가지를 선정.   \
 _이하 내용은 [DataFlair](https://data-flair.training/blogs/why-hadoop/)을 번역하여 요약한 내용이고, 일부의 경우 다른 레퍼런스를 참고하여 내용을 추가한 부분이 있습니다._
 
 ## 1) 빅데이터 관리(Managing Big Data)
+
 ![Data-Distribution](/images/Growth-of-Unstructured-Data.jpg "Growth-of-Unstructured-Data")
+
 우리는 데이터 홍수의 시대(2일마다 5엑사바이트의 데이터 생산)에 살고 있으며, 기하급수적으로 증가하는 데이터 양을 관리하기 위한 빅데이터 기술이 필요합니다.
 그리고 강력한 아키텍쳐와 경제적인 기능을 가진 하둡은 방대한 데이터를 저장 및 처리하는데 가장 적합한 도구입니다.
 
 ## 2) 빅데이터 시장의 기하급수적인 성장(Exponential Growth of Big Data Market)
 _Forbes - "하둡 시장은 연 평균 42.1%로 2022년까지 99.31억 달러에 다를 것으로 예측."_
+
 ![Hadoop market](/images/Global-Hadoop-Market.jpg "Global-Hadoop-Market")
+
 빅데이터 시장이 점점 성장함에 따라 빅데이터 기술에 대한 욕구도 증가했습니다. 하둡은 이렇게 생겨난 빅데이터 기술(spark, flink 등)들의 토대를 형성했습니다.
 이러한 이유들로 하둡 전문가에 대한 수요도 계속 증가하고 있습니다.
 
@@ -47,7 +53,9 @@ _Forbes - "하둡 시장은 연 평균 42.1%로 2022년까지 99.31억 달러에
 ## 5) 강력한 하둡 에코시스템(Robust Hadoop Ecosystem)
 하둡 에코시스템은 Governance, Finance, Banking, Insurance, Heathcare 등 사회 전반에 걸친 모든 요소들과 연관되어 사용되고 있습니다. \
 하둡 에코시스템에는 Hive, Hbase, Zookeeper, Pig 등 다양한 소프트웨어가 구성요소로 있습니다.
+
 ![Hadoop Ecosystem](/images/HADOOP-ECOSYSTEM.jpg "HADOOP-ECOSYSTEM")
+
 - Hadoop Mapreduce : 빅데이터의 집계와 요약 수행
 - Hive : hdfs의 상위에 있는 Data Warehouse. SQL과 같은 인터페이스로 데이터 조회 및 분석을 제공
 - Hbase : NoSQL Database
@@ -62,7 +70,9 @@ _Forbes - "하둡 시장은 연 평균 42.1%로 2022년까지 99.31억 달러에
 특히 spark가 등장하면서 Mapreduce를 사용했을 때보다 에코시스템 코딩이 더욱 쉬워졌습니다. 즉, 맵리듀스에서의 수천줄의 코드가 스파크에서는 단 몇줄의 코딩으로 가능합니다.
 
 ## 8) 하둡은 어디에나 있다(Hadoop is Omnipresent)
+
 ![Big-Data-in-Different-Domains](/images/Big-Data-in-Different-Domains.jpg "Big-Data-in-Different-Domains")
+
 현 시점에서 빅데이터에 도달하지 못한 산업은 없습니다. 사람들은 점점 더 데이터의 존재를 인식하고 있고, 이는 사람들이 데이터의 힘을 깨닫기 시작했음을 의미합니다.
 이미 페이스북, 월마트, 뉴욕타임스 등 거대 기업들에서는 하둡 프레임워크를 사용하고 있고, 앞으로 더 많은 기업이나 산업에서 하둡을 사용하게 될 것입니다.
 
@@ -74,7 +84,9 @@ _Forbes - "하둡 시장은 연 평균 42.1%로 2022년까지 99.31억 달러에
 ## 11) 더 나은 커리어 범위(Hadoop has a Better Career Scope)
 
 # 2. 하둡의 역사
+
 ![Hadoop History](/images/hadoop-history.jpg "Hadoop History")
+
 ## 1) 하둡의 탄생
 하둡 프로젝트는 2006년에 본격적으로 시작됐지만, 원류를 따라가다보면 그보다 더 이전에 Apache Nutch라는 프로젝트가 있었습니다.   \
 2002년 더그 커팅은 구글과 같은 검색엔진을 오픈소스로 만들어 보겠다는 목적 하에, Apache Lucene이라는 Information Indexing Library를 기반으로 오픈소스 웹 크롤러 프로젝트인 Nutch 프로젝트를 런칭했습니다.
@@ -95,7 +107,9 @@ _Forbes - "하둡 시장은 연 평균 42.1%로 2022년까지 99.31억 달러에
 이후의 이야기들은 비교적 평이합니다. 2011년 1.0버전이 릴리즈되고 이듬해인 2012년 2.0버전이 릴리즈 됩니다. 2.0버전에서는 굵직한 변화가 있었는데, 다들 익숙한 yarn이라는 리소스 매니저를 패키지에 포함한 일과 네임노드의 이중화(고가용성)을 지원하게 된 일입니다. 이후 2017년에는 3.0버전이 릴리즈되었고 2022년 10월 6일 현재는 3.3.4버전이 가장 최신 버전으로 올라와 있는 상태입니다.
 
 ## 2) 구글 논문과 아파치 프로젝트
+
 ![google-apache](/images/google-apache.jpg "google-apache")
+
 위의 '하둡의 탄생' 글에서도 나타나지만 하둡을 비롯한 아파치 프로젝트들은 구글의 논문에 많은 영향을 받았습니다. 구글 파일시스템 논문을 보고 HDFS가 탄생했고, 구글의 맵리듀스라는 알고리즘 논문을 보고 하둡 맵리듀스 프레임워크가 탄생했듯이 말입니다.
 
 이처럼 후에 서술할 하둡에코시스템을 구성하는 여러 프로젝트 중 하나인 Hbase 또한, 구글의 기술인 bigtable을 기반으로 만들어진 NoSQL류의 데이터베이스입니다.
@@ -127,7 +141,9 @@ HIVE는 HDFS에 저장된 데이터를 SQL언어로 다루고 싶다는 욕구�
 이러한 시장의 흐름이 생겨난 후, 많은 기업에서 오픈소스 빅데이터 플랫폼을 도입하기 시작했습니다. 그리고 비교적 최근에서야 Big Data 중 "**Data**"에 초점을 맞추고 있습니다. 즉, 이젠 많은 기업들이 데이터로부터 새로운 인사이트를 찾아서 새로운 사업기회를 만들고 많은 이윤을 남기기 위한 노력들을 하고 있다는 것입니다.
 
 ## 2) 이제는 DT와 AI의 시대
+
 ![change-of-data](/images/change-of-data.jpg "change-of-data")
+
 기술의 변화는 하둡과 같은 S/W분야에 한정된 것이 아닙니다. 컴퓨터는 점차 작아지고 저렴해지면서 동시에 성능은 증가하고 있습니다. 통신은 어디서나 싸게 이용가능해지면서 소위 '통신의 공기화'가 일어나고 있습니다.
 
 이러한 변화들은 저렴한 물건들마저 똑똑해지고, 네트워크를 품기 시작했음을 의미하고 물건들끼리 통신을하고 판단을 하기 시작했다는 것을 의미합니다. 기록되지않던 것들이 기록되기 시작하고 모든 기기들이 데이터를 뿜어내고 있는, 데이터 홍수의 시대가 도래한 것이죠.
@@ -147,6 +163,7 @@ HIVE는 HDFS에 저장된 데이터를 SQL언어로 다루고 싶다는 욕구�
 * * *
 
 ![pipeline](/images/pipeline.jpg "pipeline")
+
 현재 수많은 기업들은 머신러닝에 집중하고 있습니다. 그리고 그 머신러닝을 위해 데이터 분석환경을 구축하기 위한 노력 또한 병행하고 있습니다.
 
 어느정도 큰 회사에서는 다양한 부서에서 다양한 데이터 베이스를 사용하여 데이터 소스를 수집합니다. 그 외에도 다양한 외부소스(크롤링, API..)에서도 데이터를 가져옵니다.
