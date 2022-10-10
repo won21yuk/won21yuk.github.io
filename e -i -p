@@ -1,0 +1,112 @@
+* 6439e16 = song , 55 minutes ago : greedy(2) edit2
+* f88a298 = song , 64 minutes ago : greedy(2) edit
+* 2b63cf9 = song , 67 minutes ago : greedy(2)
+* f1cb3ab = song , 5 hours ago : Hadoop Deep Inside CH.2 edit2
+* 5d6ded5 = song , 7 hours ago : Hadoop Deep Inside CH.2 edit1
+* 6c6cbb3 = song , 7 hours ago : Hadoop Deep Inside CH.2 done
+* 5dd1911 = song , 2 days ago : Hadoop Deep Inside ch.1 init
+* f6e8184 = song , 3 days ago : Greedy (1)
+* 5d11855 = song , 3 days ago : hadoop deep inside ch.0 edit-3
+* e2a55dd = song , 3 days ago : hadoop deep inside ch.0 edit-2
+* 6f9396e = song , 3 days ago : hadoop deep inside ch.0 edit-1
+* 9ebdcc3 = song , 3 days ago : hadoop deep inside ch.0 done
+* 23ffab2 = song , 4 days ago : ch.0-1 done
+* c296b29 = song , 4 days ago : Hadoop Deep inside ch.1 images upload
+* f739a78 = song , 4 days ago : Hadoop Deep inside ch.1 images
+* 61cbdd0 = song , 4 days ago : Image not working
+* 89d7609 = song , 4 days ago : Hadoop Deep Inside CH.1 init
+* 64ecb01 = song , 4 days ago : Hadoop Deep inside ch.1 init
+* ff2cff9 = song , 4 days ago : Hadoop Deep inside ch.1 init
+* 99bbb7c = song , 7 days ago : es-posting2 edit
+* b512051 = song , 7 days ago : es-posting2 edit
+* e4d510c = song , 7 days ago : logstash 1 edit
+* 82cb31b = song , 7 days ago : elasticsearch posting 2
+* 27545e2 = song , 7 days ago : modify context
+* 9742a12 = song , 7 days ago : modify context
+* 4e83d71 = song , 11 days ago : Elasticsearch ch.1 posting edit
+* fd3e264 = song , 11 days ago : ES CH.1 POSTING
+* 1329d13 = song , 11 days ago : Elasticsearch ch.1 posting
+* a06105f = song , 11 days ago : Elasticsearch ch.1 posting
+* 07d4c80 = song , 13 days ago : edit text
+* 5d72876 = song , 13 days ago : make a category
+* 8515d52 = song , 13 days ago : make a category
+* bc6db7b = song , 13 days ago : make a category
+* b7ca69c = song , 13 days ago : make a category
+* b96d150 = song , 13 days ago : make a category
+* 4f6a22f = song , 13 days ago : make a category
+* 946cad6 = song , 13 days ago : make a category
+* 0842a8e = song , 13 days ago : 'posting'
+* ca27e81 = song , 2 weeks ago : first posting
+* 9d19355 = song , 2 weeks ago : first posting
+* e0a2917 = song , 2 weeks ago : first posting
+* 0fb2fb5 = song , 2 weeks ago : add comment func
+* 67294b0 = song , 2 weeks ago : first commit
+* 4840994 = song , 2 weeks ago : [Automation] Initialize the environment.
+* 3878815 = Cotes Chung , 2 weeks ago : chore(release): 5.3.0
+* e55ebad = Cotes Chung , 2 weeks ago : docs: add PV feature deprecation note
+* 0c5b697 = Cotes Chung , 3 weeks ago : fix: correct the i18n for tab titles
+* f1d9e99 = Michael Tan , 4 weeks ago : feat: add multiple authors to a post (#677)
+* b288587 = Sorin , 4 weeks ago : fix: correct spelling of `panel` (#686)
+* f35b147 = Cotes Chung , 4 weeks ago : docs: update URL on readme
+* 163c576 = Cotes Chung , 4 weeks ago : docs: update deployment tutorial
+* 4023be9 = Cotes Chung , 4 weeks ago : chore: simplify the release tool
+* 0dcd39d = Naufal Shidqi , 5 weeks ago : fix: add missing color to linkedin icon for share list (#683)
+*   45c58d8 = Cotes , 5 weeks ago : Merge pull request #664 from GriceTurrble/patch-1
+[32m|[m[33m\[m  
+[32m|[m * e993ac8 = Galen Rice , 8 weeks ago : docs: update deployment notes
+[32m|[m * 21c8c2b = Galen Rice , 8 weeks ago : docs: switch the reference of `deploy.sh` to `test.sh`
+[32m|[m * 43323ab = Galen Rice , 8 weeks ago : chore(ci, cd): build and deploy via _gh-actions_ directly
+[32m|[m[32m/[m  
+* b78a2d8 = Martin Pfundmair , 5 weeks ago : docs: fix a typo of the tutorial (#676)
+* 940b281 = Daniel Haider , 8 weeks ago : feat(i18n): add German locale file (#663)
+* b405a58 = Cotes Chung , 9 weeks ago : refactor: make sure there is space at the bottom of core block
+* d792a2f = Cotes Chung , 9 weeks ago : chore: improve responsive design of archive entries
+* 22d4275 = Cotes Chung , 10 weeks ago : refactor: optimize the layout of archive timeline
+* 3fa1bf3 = Nihil , 3 months ago : fix: code contains spaces in headings (#644)
+* ad137fa = Hüzünlü Artemis [HuzunluArtemis] , 3 months ago : feat(i18n): add Turkish language (#631)
+* 20b7fe3 = Josh Johanning , 3 months ago : docs: adding a note about preview images and `v5.2.0` (#632)
+* 5eb329f = Cotes Chung , 3 months ago : chore: center align preview image caption (#633)
+* 378b65a = Cotes Chung , 3 months ago : fix: the `code` doesn’t wrap inside the prompt (#626)
+* 2fed338 = MrEddX , 4 months ago : feat(i18n): add Bulgarian support  (#612)
+*   232927c = Cotes Chung , 4 months ago : Merge branch 'hotfix/5.2.1'
+[34m|[m[35m\[m  
+[34m|[m * 856ef11 = Cotes Chung , 4 months ago : chore(release): 5.2.1
+[34m|[m * 971fe03 = Cotes Chung , 4 months ago : fix: exclude CHANGELOG from output
+[34m|[m * 96af729 = Cotes Chung , 4 months ago : fix(PWA): sometimes update notification is not triggered
+[34m|[m *   4c45f37 = Cotes Chung , 4 months ago : Merge branch 'master' into production
+[34m|[m [36m|[m[1;31m\[m  
+* [36m|[m [1;31m|[m b032977 = Bence Boros , 4 months ago : feat(i18n): add Hungarian locale file (#597, #598)
+[1;31m|[m [36m|[m[1;31m/[m  
+[1;31m|[m[1;31m/[m[36m|[m   
+* [36m|[m baad801 = Cotes Chung , 4 months ago : chore(release): 5.2.0
+* [36m|[m 7f18cdc = Cotes Chung , 4 months ago : build: fix the `preview` mode for release tool
+* [36m|[m fd0f983 = Cotes Chung , 4 months ago : chore: optimize the layout of main content and search input
+* [36m|[m 35cadf9 = Cotes Chung , 4 months ago : perf(categories): support singular and plural forms of locale (#595)
+* [36m|[m cc6398c = Raymond Wright , 4 months ago : docs: fix typo in English locale file (#594)
+* [36m|[m 5d6e8c5 = Cotes Chung , 4 months ago : perf: improve the responsive design for ultrawide screens (#540)
+* [36m|[m 20caace = Cotes Chung , 4 months ago : fix(PWA): avoid repeated notification of SW update
+* [36m|[m   ac1731d = Cotes Chung , 4 months ago : Merge branch 'feature/enhance-pwa'
+[1;32m|[m[1;33m\[m [36m\[m  
+[1;32m|[m * [36m|[m 106c981 = Cotes Chung , 4 months ago : feat: add option to turn off PWA (#527)
+[1;32m|[m * [36m|[m d127183 = Cotes Chung , 4 months ago : feat(PWA): add Service Worker update notification
+[1;32m|[m[1;32m/[m [36m/[m  
+* [36m|[m 54124d5 = bibi2233 , 4 months ago : fix: assets URL is missing `baseurl` in self-hosted mode (#591)
+* [36m|[m 76a1b6a = Cotes Chung , 4 months ago : fix(theme mode): `SCSS` syntax error (#588)
+* [36m|[m 91308ae = Cotes Chung , 5 months ago : refactor: decouple the `Archives` from `404` page (#576)
+* [36m|[m 12f1e6f = Cotes Chung , 5 months ago : refactor(tags): avoid URL errors caused by improper `site.baseurl` settings
+* [36m|[m 94e8144 = Six Jonathan , 5 months ago : feat: add fr-FR support to locales (#582)
+* [36m|[m   b7ad538 = Cotes Chung , 6 months ago : Merge branch 'feature/improve-post-meta'
+[1;34m|[m[1;35m\[m [36m\[m  
+[1;34m|[m * [36m|[m 097bb23 = Cotes Chung , 6 months ago : docs: add description for preview image
+[1;34m|[m * [36m|[m 2bd6efa = Cotes Chung , 6 months ago : feat: support showing description of preview image
+[1;34m|[m * [36m|[m 135a16f = Cotes Chung , 6 months ago : perf: avoid post pageviews from shifting while loading
+[1;34m|[m * [36m|[m 6d35f5f = Cotes Chung , 6 months ago : perf: avoid the layout shift for post datetime
+[1;34m|[m[1;34m/[m [36m/[m  
+* [36m|[m 42c44a8 = Cotes Chung , 6 months ago : refactor: simplify travis config
+* [36m|[m   138c537 = Cotes , 6 months ago : Merge pull request #541 from ZakKemble/fix-various
+[1;36m|[m[31m\[m [36m\[m  
+[1;36m|[m * [36m|[m 59e9557 = Zak Kemble , 6 months ago : fix: spurious header closing tags
+[1;36m|[m * [36m|[m 4f590e2 = Zak Kemble , 7 months ago : fix: p is not allowed in span
+[1;36m|[m * [36m|[m 6900d9f = Zak Kemble , 7 months ago : fix: follow paginate_path config for pagination
+[1;36m|[m * [36m|[m 58928db = Zak Kemble , 7 months ago : fix: alt is not a valid attribute for 'a' tag
+* [31m|[m [36m|[m 30787fc = Jayitha , 6 months ago : fix: horizontal scroll for long equations (#545)
