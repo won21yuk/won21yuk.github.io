@@ -22,8 +22,9 @@ categories: [Hadoop, Deep Inside]
 
 ![why-hadoop](/images/Why-Hadoop.jpg "why-hadoop?")
 
-다양한 무료 강의들을 제공해주는 DataFlair라는 사이트에서 하둡을 배워야하는 핵심 이유 11가지를 선정.   \
-_이하 내용은 [DataFlair](https://data-flair.training/blogs/why-hadoop/)을 번역하여 요약한 내용이고, 일부의 경우 다른 레퍼런스를 참고하여 내용을 추가한 부분이 있습니다._
+다양한 무료 강의들을 제공해주는 DataFlair라는 사이트에서 하둡을 배워야하는 핵심 이유 11가지를 선정.
+
+_이하 내용은 [DataFlair](https://data-flair.training/blogs/why-hadoop/)을 번역하여 요약한 내용이고, 일부의 경우 다른 레퍼런스를 참고하여 내용을 추가한 부분이 있습니다. 또한 개인적 판단으로 불필요한 요소들은 타이틀만 적고 세부내용을 적지 않을 것입니다._
 
 ## 1) 빅데이터 관리(Managing Big Data)
 
