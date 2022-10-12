@@ -1,9 +1,7 @@
 ---
-title: Hadoop Deep Inside - Ch.2 구글 파일 시스템(Google File System)
+title: Hadoop Deep Inside - Ch.2 구글 파일 시스템(Google File System) (1)
 categories: [Hadoop, Deep Inside]
 ---
-
-# gfs
 
 앞선 챕터에서 분산 파일 시스템(DFS)라는 운영체제에 대한 공부를 했습니다. GFS와 HDFS의 근간이 되는 개념이죠. 그럼 또 한가지 의문이 생깁니다. HDFS는 GFS 논문을 보고 만들었고 GFS는 DFS 개념을 토대로 작성되었으니, 이제는 ‘GFS는 과연 무엇일까’하는 의문이 말이죠. 이 의문은 너무나도 자연스러워서 거부할 수 없는 흐름을 만들어냈습니다. 그렇기에 전 이번 챕터에서 HDFS를 알기위한 그 두번째 여정으로 GFS가 무엇인지에 대해 알아보려합니다. 다소 너무 돌아가는 듯한 느낌이 들 수도 있지만, Deep Inside라는 취지에 맞춰서 끈기있게 진행해 보도록 하겠습니다.
 
