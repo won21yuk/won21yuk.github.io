@@ -7,7 +7,7 @@ categories: [Hadoop, Deep Inside]
 
 # 1. Google File Systme(GFS) 개요
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/52299cdd-6fd3-4800-89d3-34d6ebd87c9b/Untitled.png)
+![GFS-wordcloud](/images/GFS-wordcloud.jpg "GFS-wordcloud")
 
 구글 파일 시스템(이하 GFS)의 등장에는 2000년 전후에 기하급수적으로 성장하기 시작한 인터넷 시장이 있습니다. 인터넷 시장이 커짐에 따라 구글의 데이터 처리 요구 사항이 급증했고, 구글은 해당 욕구를 충족하기 위해 GFS를 설계하고 구현한 것이죠.
 
@@ -62,11 +62,9 @@ GFS의 설계자들은 앞선 관찰을 통해 주요 사실들에 대해 인식
     >
 4. 동시적으로 같은 파일에 append 작업을 하는 많은 클라이언트를 고려해야한다. 생산자-소비자 큐와 같은 자료구조를 도입하여 수 많은 생산자(클라이언트)들이 동시적으로 파일에 append하게 한다.
 
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/023a7a0a-459c-4e5d-9886-863081d09056/Untitled.png)
-
 5. 낮은 지연 시간(latency)보다 높은 지속적인 대역폭(bandwidth)이 더 중요하다.
 
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ebbf226c-1b58-42a2-ac33-23f6c0e945a2/Untitled.png)
+![latency-bandwidth](/images/latency-bandwidth.jpg "latency-bandwidth")
 
     - 대부분의 구글 에플리케이션은 대량의 데이터 처리 속도를 높이면서, 개별 읽기 또는 쓰기에 대한 엄격한 응답 시간을 요구하지 않기 때문
 
@@ -86,7 +84,7 @@ GFS의 설계자들은 앞선 관찰을 통해 주요 사실들에 대해 인식
 
 ## 3) 아키텍쳐
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3b664dd3-daad-44df-aba0-87cfad79c01b/Untitled.png)
+![GFS-architecture](/images/GFS-architecture.jpg "GFS-architecture")
 
 GFS의 클러스터는 하나의 마스터와 복수의 청크서버(Chunk Server)로 구성되어 있고, 각 요소들은 평범한 리눅스 머신에 불과합니다. 그리고 클라이언트들은 각 요소(마스터와 청크서버들)에 접근이 가능합니다.
 
@@ -100,7 +98,7 @@ GFS에 저장되는 파일은 고정 크기 청크(Fixed-size chunks)로 나누�
 
 또한 마스터는 청크 리스 관리, 가비지 컬렉션, 청크 마이그레이션과 같은 시스템 전반의 활동을 제어하는 역할도 수행합니다. 이를 위해 마스터는 청크서버와 주기적으로 통신하여 명령을 내리거나 상태 정보 등을 받는데,  이러한 메커니즘을 하트비트(heartbeat)라고 합니다. 마치 심장박동을 확인하는 것 처럼 정기적으로 신호를 주고받는다는 것이죠.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fd2379b6-e92b-415b-94f3-903950fcd098/Untitled.png)
+![GFS-architecture2](/images/GFS-architecture2.jpg "GFS-architecture2")
 
 클라이언트는 메타데이터 작업을 위해서 마스터에 접근하기도 하지만, 데이터를 포함한 모든 통신은 청크서버로 직접 전달되는 형태입니다. 즉, 모든 데이터의 읽기나 쓰기 작업은 클라이언트와 청크서버간의 통신을 통해 이루어진다는 것입니다.
 
@@ -108,7 +106,7 @@ GFS에 저장되는 파일은 고정 크기 청크(Fixed-size chunks)로 나누�
 
 전체적인 아키텍쳐를 봤으니, 이제는 아키텍쳐를 구성하는 개개의 요소들을 하나씩 살펴볼 차례입니다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9ea77974-17f4-402a-963c-84f8a9b482d7/Untitled.png)
+![GFS-master](/images/GFS-master.jpg "GFS-master")
 
 ### (3-1) 단일 마스터(Single Master)
 
@@ -118,7 +116,7 @@ GFS 클러스터의 아키텍쳐를 보면, 단일 마스터를 사용하고 있
 
 - 읽기 작동메커니즘 (Read Operation)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/14facbb4-938c-409c-95e6-9b409ddcc776/Untitled.png)
+![GFS-read](/images/GFS-read.jpg "GFS-read")
 
 1. 우선 클라이언트는 고정 크기 청크(Fixed-size chunks)를 사용하여 어플리케이션에서 지정한 파일 이름과 바이트 오프셋을 파일 내의 청크 인덱스로 변환합니다.
 2. 그런 다음 파일 이름(File name)과 청크 인덱스(Chunk index)가 포함된 요청을 마스터에 보냅니다.
@@ -129,13 +127,12 @@ GFS 클러스터의 아키텍쳐를 보면, 단일 마스터를 사용하고 있
 
 - 쓰기 작동 메커니즘(Write Operation)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6cc8dabf-8fee-4096-8e70-30e8889b3ea4/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b4678591-87fe-41e5-8482-eb91614b203d/Untitled.png)
+![GFS-write1](/images/GFS-write1.jpg "GFS-write1")
+![GFS-write2](/images/GFS-write2.jpg "GFS-write1")
 
 ### (3-2) 청크 크기(Chunk size)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/62cdbf1c-54fd-40cc-b9c3-2865d36fd8b3/Untitled.png)
+![chunk-size](/images/chunk-size.jpg "chunk-size")
 
 GFS는 기본 청크 크기로 64MB를 설정했고, 이는 일반적인 DFS의 블록 크기보다 훨씬 큰 단위입니다.  각 청크 복제본은 청크 서버에 일반 리눅스 파일로 저장되며 필요한 경우에만 확장됩니다.
 
@@ -197,7 +194,7 @@ GFS는 고도로 분산된 어플리케이션을 잘 지원하지만, 상대적�
 
 파일 네임스페이스의 변경(ex. 파일 생성)은 원자적입니다. 이것은 전적으로 마스터에 의해 수행되며, 네임스페이스 'locking'은 원자성과 정확성을 보증합니다. 마스터의 작업 로그는 이러한 작업의 전체 순서를 정합니다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/56e2c578-f95d-4da2-aa32-e727e75b7e06/Untitled.png)
+![mutation](/images/mutation.jpg "mutation")
 
 데이터 변화(mutation) 후 파일 영역(file region)의 상태는 변화의 유형, 성공 또는 실패 여부, 동시 변화가 있는지 여부에 따라 달라집니다. 위의 표는 그 결과를 요약한 것입니다.
 
