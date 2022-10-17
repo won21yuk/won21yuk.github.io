@@ -65,7 +65,7 @@ git config --global user.email "song@gmail.com"
 ## 이전에 커밋한 것을 잔디밭에 다시 심어주기
 이전에 commit한 내용을 잔디 심기하기 위해선 꽤나 번거로운 과정을 반복해야한다.
 
-1. 이전 commit의 해쉬코드 찾기
+### 1. 이전 commit의 해쉬코드 찾기
 
 ```bash
 git log --pretty=format:"%h = %an , %ar : %s" --graph
@@ -87,7 +87,7 @@ git log --pretty=format:"%h = %an , %ar : %s" --graph
 
 이 로그들에서 잔디를 심지 못한 commit들 중 가장 오래전인 commit의 해시코드를 적어놓고 다음 단계에서 사용해야한다.
 
-2. rebase 하기
+### 2. rebase 하기
 
 ```bash
 git rebase -i 해쉬코드
@@ -119,7 +119,7 @@ pick은 그대로 두겠다는 의미고, edit은 변경하겠다는 뜻이다.
 
 다 변경해 주었으면, ecs + wq!로 해당 파일을 저장해준다.
 
-3. 지정한 commit들의 email 변경해주기
+### 3. 지정한 commit들의 email 변경해주기
 이제 edit으로 설정해둔 commit들의 email을 나의 github 계정에 등록된 email로 변경해줘야 한다.
 
 ```bash
@@ -159,10 +159,10 @@ master 말고 branch로 보내고 싶다면 해당 branch 명을 입력해주면
 
 해결방법은 위 1번보다 훨씬 간단하다.
 
-1. 새 repository 만들기
+### 1. 새 repository 만들기
 내 소유의 repository를 만들기 위해서 일단 새 repository를 만들어 준다.
 
-2. mirror clone하기
+### 2. mirror clone하기
 이전에 fork한 repository를 mirror clone 해줄 것이다.
 
 clone 커맨드의 --mirror 옵션은 commit 이력도 clone하게 해준다.
@@ -177,7 +177,7 @@ git clone --mirror https://github.com/won21yuk/ex-repository.git
 
 이러면 작업하고 있는 디렉토리에 해당 repository가 복사된다.
 
-3. mirror push 하기
+### 3. mirror push 하기
 복사된 repository가 있는 디렉토리로 이동해주고, mirror push를 해준다.
 
 만약 새 repository의 이름이 이전과 다르다면, remote로 새 repository의 url을 지정해 주고 mirror push 해야한다.
