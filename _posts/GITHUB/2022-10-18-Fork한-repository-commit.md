@@ -1,5 +1,5 @@
 ---
-title: fork한 repository에 commit했는데 잔디가 안심어지는 문제
+title: fork한 repository에 commit해도 잔디가 안심어지는 문제
 categories: [Github]
 ---
 
