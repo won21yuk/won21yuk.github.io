@@ -9,16 +9,16 @@ categories: [Github]
 
 그래서 여기저기 검색해보니, fork한 repository에 commit하면 잔디심기가 안된다고 한다.
 
-내가 잔디 심기에 집착하는건 아니지만, 막상 잔디가 안심어졌다하니 나 뭐한건가 싶어서 왠지 모를 공허함이 생겼다.
+내가 잔디 심기에 집착하는건 아니지만, 막상 잔디가 안심어졌다하니 난 뭐한건가 싶어서 왠지 모를 공허함이 생겼다.
 
 잃어버린 내 잔디가 심어지면, 이 공허한 마음 채워질지 한번 확인해보도록하겠다.
 
 # 해결법
 github에 잔디를 심기위해서는 크게 두가지 조건이 충족되어야하는데,
-1. github 계정에 등록된 이메일과 이름이 commit할 때 등록된 user.email, user.name과 같아야하고,
+1. github 계정에 등록된 이메일이 commit할 때 등록된 user.email과 같아야하고,
 2. 내 소유의 repository여야한다. 이는 **fork한 repository면 안된다는 뜻**과 같다.
 
-# 1. user email, name을 github 계정과 일치 시키기
+# 1. user email을 github 계정과 일치 시키기
 내 경우는 2번에 해당하지만 그래도 정리해놓는 김에 1번 해결법도 적어 놓으려 한다.
 
 user.email과 name을 확인하는 방법은 아래의 명령어를 실행하면 된다.
@@ -62,10 +62,11 @@ git config --global user.email "song@gmail.com"
 
 나의 목표는 잔디를 되살리는 것이기 때문에 이에 만족할 수 없다.
 
-## 이미 커밋한 거 잔디밭에 다시 심어주기
+## 이전에 커밋한 것을 잔디밭에 다시 심어주기
 이전에 commit한 내용을 잔디 심기하기 위해선 꽤나 번거로운 과정을 반복해야한다.
 
 1. 이전 commit의 해쉬코드 찾기
+
 ```bash
 git log --pretty=format:"%h = %an , %ar : %s" --graph
 ```
@@ -83,15 +84,19 @@ git log --pretty=format:"%h = %an , %ar : %s" --graph
 * e072b28 = won21yuk , 4 days ago : 2022-10-13 HDI ch2-2 upload
 * caa56bf = won21yuk , 5 days ago : 2022-10-12 HDI context edit3
 ```
+
 이 로그들에서 잔디를 심지 못한 commit들 중 가장 오래전인 commit의 해시코드를 적어놓고 다음 단계에서 사용해야한다.
 
 2. rebase 하기
+
 ```bash
 git rebase -i 해쉬코드
 ```
+
 위의 커맨드를 입력하면, 아래와 같이 출력된다.
 
 보면 알겠지만 입력한 해쉬코드 이후의 commit 리스트가 출력되기 때문에, 위에서 가장 오래전인 commit의 해시코드를 적어놔야한다고 했던 것이다.
+
 ```bash
 pick e213481 2022-10-11 context adit
 pick f998f71 2022-10-12 HDI ch2 Posting update
@@ -107,6 +112,7 @@ pick e366fa0 2022-10-13 greedy 4 edit
 pick 6fbcc23 2022-10-15 implementation upload
 pick c73a881 2022-10-17 Implementation2 upload
 ```
+
 여기서 수정해야하는 commit들은 pick 대신 edit으로 변경해줘야한다.
 
 pick은 그대로 두겠다는 의미고, edit은 변경하겠다는 뜻이다.
@@ -119,12 +125,15 @@ pick은 그대로 두겠다는 의미고, edit은 변경하겠다는 뜻이다.
 ```bash
 git commit --amend --author="이름 <본인 이메일>"
 ```
+
 위의 커맨드를 입력하면 이런저런 글자들이 터미널에 출력될텐데 아무것도 건들지말고 그냥 바로 q를 입력해 나와주면 된다.
 
 그 다음 아래의 명령어를 입력해서 다음 commit으로 넘어간다.
+
 ```bash
 git rebase --continue
 ```
+
 이제부턴 반복이다.
 
 다시 email 변경해주고 q로 나오고 continue해주고를 반복하면 된다.
@@ -132,9 +141,11 @@ git rebase --continue
 이 노가다는 'fetal: No rebase in progress?'라는 문구가 뜨면 끝이 난 것이다.
 
 마무리로 내 repository로 강제 push를 진행해주면 된다.
+
 ```bash
 git push origin +master
 ```
+
 master 말고 branch로 보내고 싶다면 해당 branch 명을 입력해주면 된다.
 
 다만, **'+'는 반드시 써줘야합니다.** 이게 강제로 push 시켜주는 기호기 때문이다.
