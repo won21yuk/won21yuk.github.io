@@ -112,4 +112,4 @@ HDFS는 파일이 들어오면 블록이라는 단위로 나눈 후 분산해서
 ### (1) 네임노드(NameNode)와 데이터노드(DataNode)
 ![hdfs6](/images/hdfs6.jpg)
 
-HDFS에서 namenode는 masternode라고도 불립니다. master-slave 구조에서 master의 역할을 맡는 다는 것이죠. 그리고 HDFS에서 slave 역할을 맡는 건 datanode입니다.
+HDFS에서 네임노드는는 마스터노드라고도 불립니다. master-slave 구조에서 master의 역할을 맡는 다는 것이죠. 그리고 HDFS에서 slave 역할을 맡는 건 데이터노드입니다.
