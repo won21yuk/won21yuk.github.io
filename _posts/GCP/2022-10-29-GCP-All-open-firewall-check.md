@@ -326,9 +326,9 @@ requests.post(slack_webhook_url,
 
 # Reference
 
-[Method: firewalls.list  |  Compute Engine Documentation  |  Google Cloud](https://cloud.google.com/compute/docs/reference/rest/v1/firewalls/list?hl=id-ID)
+[Method: firewalls.list (Google Cloud)](https://cloud.google.com/compute/docs/reference/rest/v1/firewalls/list?hl=id-ID)
 
-[빠른 시작: Google Cloud CLI 설치  |  Google Cloud CLI 문서](https://cloud.google.com/sdk/docs/install-sdk)
+[빠른 시작: Google Cloud CLI 설치 (Google Cloud CLI 문서)](https://cloud.google.com/sdk/docs/install-sdk)
 
 [GCP - all open 방화벽 체크 (tistory.com)](https://burning-dba.tistory.com/126?category=1027247)
 
