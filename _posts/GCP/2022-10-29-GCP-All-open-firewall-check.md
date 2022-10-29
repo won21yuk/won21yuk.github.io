@@ -47,7 +47,7 @@ categories: [GCP]
 
 - all-open 방화벽은 해킹에 상당히 취약함.
 - 하나의 인스턴스만 뚫려도 GCP 보안 규정상 **전체 프로젝트가 블락**걸릴 수 있음
-- 이때문에 정기적인 all-open 방화벽의 존재를 확인할 필요가 존재
+- 이때문에 정기적으로 all-open 방화벽의 존재를 확인할 필요가 존재
 - 프로젝트의 규모가 커질 수록 그 필요는 더 증가함
 
 ## 📝 계획
@@ -326,9 +326,9 @@ requests.post(slack_webhook_url,
 
 # Reference
 
-[Method: firewalls.list | Compute Engine Documentation | Google Cloud](https://cloud.google.com/compute/docs/reference/rest/v1/firewalls/list?hl=id-ID)
+[Method: firewalls.list  |  Compute Engine Documentation  |  Google Cloud](https://cloud.google.com/compute/docs/reference/rest/v1/firewalls/list?hl=id-ID)
 
-[빠른 시작: Google Cloud CLI 설치 | Google Cloud CLI 문서](https://cloud.google.com/sdk/docs/install-sdk)
+[빠른 시작: Google Cloud CLI 설치  |  Google Cloud CLI 문서](https://cloud.google.com/sdk/docs/install-sdk)
 
 [GCP - all open 방화벽 체크 (tistory.com)](https://burning-dba.tistory.com/126?category=1027247)
 
