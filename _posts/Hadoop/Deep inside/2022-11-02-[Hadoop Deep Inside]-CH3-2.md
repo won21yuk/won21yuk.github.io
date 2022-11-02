@@ -85,7 +85,7 @@ Split brain 상황에서는 두 Active 네임노드는 동시에 Edit log를 공
 
 그러나 이렇게 주키퍼를 이용하여 자동으로 장애 상황을 확인하여 펜싱처리할 경우에도 여전히 문제가 남아 있었습니다. 아주 드문 경우긴하지만, Active 네임노드가 주키퍼와 Standby 네임노드와의 네트워크는 단절되었지만 공유 스토리지와는 여전히 통신이 되는 상황이 바로 그것이죠.
 
-<div class="notice--danger" markdown="1">
+<div class="notice--primary" markdown="1">
 💡 **펜싱(fencing)** ≒ Stonith(shoot the other node in the head)
 : 이전의 Active 네임노드가 현재 네임스페이스의 내용을 바꾸지 못하도록 보장하기위한 하둡의 기술. HDFS는 아래와 같은 다양한 펜싱 메커니즘을 사용하고 있습니다.
 - 이전의 Active 네임노드 종료
@@ -193,7 +193,7 @@ Standby 네임노드의 메타데이터의 동기화가 완료되면, ZKFC는 �
 
 결론적으로 위의 그림과 같이 주키퍼와 QJM을 사용해 하둡 고가용성 클러스터를 구축했을 때의 Failover 세부 절차는 아래와 같습니다.
 
-<div class="notice--danger" markdown="1">
+<div class="notice--primary" markdown="1">
 💡 **JournalNode 사용 시, Failover 절차**
 
 1. Active NameNode는 edit log 처리용 epoch number를 할당 받는다. 이 번호는 uniq하게 증가하는 번호로 새로 할당 받은 번호는 이전 번호보다 항상 크다.
