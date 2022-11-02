@@ -193,9 +193,7 @@ Standby 네임노드의 메타데이터의 동기화가 완료되면, ZKFC는 �
 
 결론적으로 위의 그림과 같이 주키퍼와 QJM을 사용해 하둡 고가용성 클러스터를 구축했을 때의 Failover 세부 절차는 아래와 같습니다.
 
-<div class="notice--primary" markdown="1">
 💡 **JournalNode 사용 시, Failover 절차**
-
 1. Active NameNode는 edit log 처리용 epoch number를 할당 받는다. 이 번호는 uniq하게 증가하는 번호로 새로 할당 받은 번호는 이전 번호보다 항상 크다.
 2. Active NameNode는 파일 시스템 변경 시 JournalNode로 변경 사항을 전송한다. 전송 시 epoch number를 같이 전송한다.
 3. JournalNode는 자신이 가지고 있는 epoch number 보다 큰 번호가 오면 자신의 번호를 새로운 번호로 갱신하고 해당 요청을 처리한다.
@@ -205,7 +203,7 @@ Standby 네임노드의 메타데이터의 동기화가 완료되면, ZKFC는 �
 5. Standby NameNode는 주기적(1분)으로 JournalNode로 부터 이전에 받은 edit log의 txid 이후의 정보를 받아 메모리의 파일 시스템 구조에 반영
 6. Active NameNode 장애 발생 시 Standby NameNode는 마지막 받은 txid 이후의 모든 정보를 받아 메모리 구성에 반영 후 Active NameNode로 상태 변환
 7. 새로 Active NameNode가 되면 1번 항목을 처리한다.
-</div>
+{: .notice--primary}
 
 여기서 1~7번은 QVM에 의한 작동이고, Failover가 트리거 되는 과정과 6번 중 Active 네임노드로 전환되는 부분이 주키퍼에 의한 작동이라고 보면 됩니다. 추가로 Active 네임노드로 전환되는 과정에는 당연히 이전의 Active 네임노드를 펜싱하는 과정이 포함됩니다.
 
