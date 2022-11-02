@@ -3,9 +3,9 @@ title: Hadoop Deep Inside - Ch.3 하둡 분산 파일 시스템(HDFS) (2)
 categories: [Hadoop, Deep Inside]
 ---
 
-이번 포스팅은 하둡 2.0버전에서의 HDFS에 관한 이야기를 진행합니다. 지난 포스팅들에서도 자주 언급했지만 하둡 2.0은 가장 굵직한 변화가 있었던 버전입니다. HDFS 뿐만아니라 하둡 전체에서도 말이죠.
+지난 포스팅들에서도 자주 언급했지만 하둡 2.0은 가장 굵직한 변화가 있었던 버전입니다.
 
-네임노드의 이중화를 통한 고가용성(HA) 아키텍쳐 도입, Yarn도입을 통한 리소스 관리 및 스케쥴링 기능 등이 대표적입니다
+네임노드의 이중화를 통한 고가용성(HA) 아키텍쳐 도입, Yarn도입을 통한 리소스 관리 및 스케쥴링 기능 등이 대표적인 예죠.
 
 해당 포스트는 HDFS의 기능에 초점을 맞추고 있기때문에 HDFS가 하둡 2.0에서부터 어떠한 변화들이 있었는지에 초점을 맞춰 하나씩 살펴보도록 하겠습니다.
 
@@ -86,7 +86,7 @@ Split brain 상황에서는 두 Active 네임노드는 동시에 Edit log를 공
 그러나 이렇게 주키퍼를 이용하여 자동으로 장애 상황을 확인하여 펜싱처리할 경우에도 여전히 문제가 남아 있었습니다. 아주 드문 경우긴하지만, Active 네임노드가 주키퍼와 Standby 네임노드와의 네트워크는 단절되었지만 공유 스토리지와는 여전히 통신이 되는 상황이 바로 그것이죠.
 
 ```text
-💡 **펜싱(fencing)** ≒ Stonith(shoot the other node in the head)
+💡 펜싱(fencing) ≒ Stonith(shoot the other node in the head)
 : 이전의 Active 네임노드가 현재 네임스페이스의 내용을 바꾸지 못하도록 보장하기위한 하둡의 기술. HDFS는 아래와 같은 다양한 펜싱 메커니즘을 사용하고 있습니다.
 - 이전의 Active 네임노드 종료
 - NFS 명령을 사용하여 공유 스토리지 디렉토리에 대한 해당 네임노드의 엑세스 권한 취소
@@ -194,14 +194,14 @@ Standby 네임노드의 메타데이터의 동기화가 완료되면, ZKFC는 �
 결론적으로 위의 그림과 같이 주키퍼와 QJM을 사용해 하둡 고가용성 클러스터를 구축했을 때의 Failover 세부 절차는 아래와 같습니다.
 
 ```text
-💡 **JournalNode 사용 시, Failover 절차**
+💡 JournalNode 사용 시, Failover 절차
 
 1. Active NameNode는 edit log 처리용 epoch number를 할당 받는다. 이 번호는 uniq하게 증가하는 번호로 새로 할당 받은 번호는 이전 번호보다 항상 크다.
 2. Active NameNode는 파일 시스템 변경 시 JournalNode로 변경 사항을 전송한다. 전송 시 epoch number를 같이 전송한다.
 3. JournalNode는 자신이 가지고 있는 epoch number 보다 큰 번호가 오면 자신의 번호를 새로운 번호로 갱신하고 해당 요청을 처리한다.
 4. JournalNode는 자신이 가지고 있는 번호보다 작은 epoch number를 받으면 해당 요청은 처리하지 않는다.
-    1. 이런 요청은 주로 SplitBrain 상황에서 발생하게 된다.
-    2. 기존 NameNode가 정상적으로 Standby로 변하지 않았고, 이 NameNode가 정상적으로 fencing 되지 않은 상태이다.
+    a. 이런 요청은 주로 SplitBrain 상황에서 발생하게 된다.
+    b. 기존 NameNode가 정상적으로 Standby로 변하지 않았고, 이 NameNode가 정상적으로 fencing 되지 않은 상태이다.
 5. Standby NameNode는 주기적(1분)으로 JournalNode로 부터 이전에 받은 edit log의 txid 이후의 정보를 받아 메모리의 파일 시스템 구조에 반영
 6. Active NameNode 장애 발생 시 Standby NameNode는 마지막 받은 txid 이후의 모든 정보를 받아 메모리 구성에 반영 후 Active NameNode로 상태 변환
 7. 새로 Active NameNode가 되면 1번 항목을 처리한다.
