@@ -1,5 +1,5 @@
 ---
-title: GCP - 방화벽 규칙
+title: Airflow - GCP All-Open 방화벽 체크 자동화 (1)
 categories: [Airflow]
 ---
 *이전 [GCP의 방화벽 체크 및 슬랙 메세지 전송 포스팅](https://won21yuk.github.io/posts/GCP-All-open-firewall-check/)과 이어지는 포스팅입니다.*
