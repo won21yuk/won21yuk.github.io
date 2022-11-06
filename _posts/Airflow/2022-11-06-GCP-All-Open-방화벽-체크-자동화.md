@@ -446,9 +446,13 @@ t1 테스크가 성공해서 방화벽 모니터링 메세지가 왔고 바로 �
 
 ![auto-firewall-check10](/images/auto-firewall-check10.png)
 
-또한 airflow webserver에서 dag 성공을 확인할 수 있습니다.
+마지막으로 아래의 스크린샷은 최종 DAG를 airflow webserver에서 트리거 시켜 정상 작동함을 확인한 내용입니다.
 
 ![auto-firewall-check11](/images/auto-firewall-check11.png)
+
+t1 테스크만 실행되도록했고 오늘 부터 3일 주기로 15시에 작동하도록 스케쥴링했습니다.
+
+
 
 ## 별첨
 
