@@ -505,15 +505,15 @@ HDFS는 휴지통 기능을 지원합니다. HDFS 상에서 파일들을 지웠�
 
 즉, 기본적으로 상단한 리소스를 잡아먹고있다는 것이죠. 그런데 동시에 밸런싱 작업도 상당히 많은 리소스를 잡아먹기때문에, 기존의 작동중인 작업들에 영향을 최소한으로 미칠수 있도록 적당한 리소스를 배분하는 것은 상당히 중요한 문제입니다. 이와 관련된 하둡 밸런싱 옵션은 아래와 같습니다.
 
-| 옵션 | 설명 |
-| --- | --- |
-| -policy <policy> | blockpool/datanode 중 하나의 정책으로 hdfs balance를 수행한다. ‘datanode’는 각 노드들의 사용량을 balancing하는 것이라면, blockpool은 각 node의 pool까지 balancing하는 것이다. 기본값은 datanode이다. |
-| -threshold <threshold> | 1.0~100.0 사이의 수를 입력하여 어느 정도까지 노드간 밸런싱을 수행할 것인지를 설정한다. 기본값은 10으로 각 노드들을 10% 미만으로 차이가 날 때까지 밸런싱을 수행한다 |
-| -blockpools <comma-seperated list of block pool ids> | HDFS가 명시된 리스트의 BOLCKPOOL만 밸런싱 수행한다. 만약 리스트가 비워져 있다면 모든 blockpool을 밸런싱한다. 기본값은 공백이다. |
-| -include [-f <hosts-file> | <comma=seperated list of hosts>] | 밸런싱을 수행할 호스트를 명시한다. -f옵션으로 호스트들의 리스트를 가지고 있는 파일을 지정하던가, 콤마로 구분된 여러 호스트들을 지정한다. 만약 공백이라면 모든 데이터노드에 대해서 진행하며 기본값을 공백이다. |
-| -exclude [-f <hosts-file> | <comma=seperated list of hosts>] | -include 옵션과 반대로 밴런싱에서 제외할 호스트들만을 입력한다. 공백값은 어떠한 노드들도 제외되지 않는 것이고 기본값은 공백이다. |
-| -idleiterations <idleiterations> | HDFS Balancer가 더이상 밸런싱할 블록이 없을 때까지 반복적으로 Balancer를 수행한다. 기본 값은 5인데, 이동할 블록이 없더라고 5번의 검사를 진행한다. |
-| -runDuringUpgrade | 만약 이 옵션이 추가되어 있다면 HDFS 업그레이드 수행중에 Balancer를 수행한다. 하지만 일반적으로 권고되지 않는 방법이다. 지속적으로 삭제되는 HDFS 블록들이 HDFS 내부 trash 공간을 빠르게 채우기 때문이다. |
+| 옵션                                                          | 설명                                                                                                                                                     |
+|-------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -policy <policy>                                            | blockpool/datanode 중 하나의 정책으로 hdfs balance를 수행한다. ‘datanode’는 각 노드들의 사용량을 balancing하는 것이라면, blockpool은 각 node의 pool까지 balancing하는 것이다. 기본값은 datanode이다. |
+| -threshold <threshold>                                      | 1.0~100.0 사이의 수를 입력하여 어느 정도까지 노드간 밸런싱을 수행할 것인지를 설정한다. 기본값은 10으로 각 노드들을 10% 미만으로 차이가 날 때까지 밸런싱을 수행한다                                                    |
+| -blockpools <comma-seperated list of block pool ids>        | HDFS가 명시된 리스트의 BOLCKPOOL만 밸런싱 수행한다. 만약 리스트가 비워져 있다면 모든 blockpool을 밸런싱한다. 기본값은 공백이다.                                                                    |
+| -include {-f <hosts-file> <comma=seperated list of hosts>}  | 밸런싱을 수행할 호스트를 명시한다. -f옵션으로 호스트들의 리스트를 가지고 있는 파일을 지정하던가, 콤마로 구분된 여러 호스트들을 지정한다. 만약 공백이라면 모든 데이터노드에 대해서 진행하며 기본값을 공백이다. |
+| -exclude {-f <hosts-file> <comma=seperated list of hosts>}  | -include 옵션과 반대로 밴런싱에서 제외할 호스트들만을 입력한다. 공백값은 어떠한 노드들도 제외되지 않는 것이고 기본값은 공백이다.                                                                            |
+| -idleiterations <idleiterations>                            | HDFS Balancer가 더이상 밸런싱할 블록이 없을 때까지 반복적으로 Balancer를 수행한다. 기본 값은 5인데, 이동할 블록이 없더라고 5번의 검사를 진행한다.                                                         |
+| -runDuringUpgrade                                           | 만약 이 옵션이 추가되어 있다면 HDFS 업그레이드 수행중에 Balancer를 수행한다. 하지만 일반적으로 권고되지 않는 방법이다. 지속적으로 삭제되는 HDFS 블록들이 HDFS 내부 trash 공간을 빠르게 채우기 때문이다.                         |
 
 더 자세한 내용은 [여기](https://community.cloudera.com/t5/Community-Articles/HDFS-Balancer-2-Configurations-CLI-Options/ta-p/246687)서 확인 할 수 있습니다.
 
