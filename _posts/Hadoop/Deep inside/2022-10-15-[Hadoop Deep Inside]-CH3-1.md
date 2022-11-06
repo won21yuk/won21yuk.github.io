@@ -392,7 +392,7 @@ HDFS 하에서 파일은 기본적으로 블록으로 나눠지고, 원본 블�
 
 Rack Awareness의 컨셉은 블록의 복제본들이 어디에 저장되어야할지 결정하는 것 입니다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ec657231-b843-4c39-9476-92a7bd670410/Untitled.png)
+![hdfs17](/images/hdfs17.png)
 
 위의 그림은 Rack Awareness가 일어나는 알고리즘을 표현한 그림입니다. 위의 그림에서 하둡 클러스터는 3개의 Rack과 12개의 데이터노드로 구성되어 있고, 복제본 설정은 3개로 되어 있습니다.
 
@@ -448,6 +448,25 @@ HDFS는 휴지통 기능을 지원합니다. HDFS 상에서 파일들을 지웠�
 
 하둡은 운영자 커맨드가 별도로 존재합니다. 주로 실행이나 설정 관련 명령어가 많습니다.
 
+| 커맨드 | 비고 |
+| --- | --- |
+| namenode | 네임노드 실행 |
+| datanode | 데이터 노드 실행 |
+| secondarynamenode | 세컨더리 네임노드 실행 |
+| balancer | HDFS 밸렁싱 처리 |
+| cacheadmin | 자주 읽는 데이터에 대한 캐쉬 처리 |
+| crypto | 암호화 처리 |
+| dfsadmin | HDFS 관리를 위한 Admin 유틸리티 명령 |
+| dfsrouter | HDFS 연합 라우팅 실행 |
+| dfsrouteradmin | 데이터 노드 라우팅 설정 |
+| haadmin | HA 실행 명령어(QJM 또는 NFS) |
+| journalnode | QJM을 이용한 HA, 저널노드용 명령어 |
+| mover | 데이터 마이그레이션용 유틸리티 명령어 |
+| nfs3 | NFS3 게이트웨이 명령어 |
+| portmap | NFS3 게이트웨이 포트맵 명령어 |
+| storagepolicies | HDFS 저장정책 설정 명령어 |
+| zkfc | 주키퍼 FailOver 컨트롤러 실행 |
+
 이중 몇가지 자주 쓰이는 커맨드에 대해서 알아보겠습니다.
 
 - dfsadmin -report : HDFS의 각 노드들의 상태를 출력하며, HDFS의 전체 사용량과 각 노드의 상태를 확인 할 수 있는 명령어. 이 명령어를 통해 알 수 있는 정보는 아래와 같습니다.
@@ -466,9 +485,9 @@ HDFS는 휴지통 기능을 지원합니다. HDFS 상에서 파일들을 지웠�
     - -setSpaceQuota : Quota 설정
     - -cirSpaceQuota : Qouta 설정 해제
 
-## 7) HDFS Balancers
+## 8) HDFS Balancers
 
-![hdfs17](/images/hdfs17.png)
+![hdfs18](/images/hdfs18.png)
 
 하둡 클러스터를 운영하다보면 서로 다른 스펙의 데이터노드를 하나의 클러스터로 구성하는 경우가 있습니다. 시작부터 스펙이 상이한 서버들로 하는 경우도 있겠지만, 보통은 하둡클러스터 내의 데이터노드를 추가할 때 도입 시기에 따라 서로 상이한 스펙으로 구성될 수 있습니다. 같은 하둡 클러스터라고 해도 2011년에 도입했던 데이터 노드 서버와 2022년에 도입한 데이터 노드 서버의 스펙이 상이할 수 있다는 겁니다.
 
@@ -485,6 +504,16 @@ HDFS는 휴지통 기능을 지원합니다. HDFS 상에서 파일들을 지웠�
 하지만 운영중인 하둡 클러스터에 대하여 이러한 밸런싱 작업을 수행한다는 건 꽤나 위험한 작업입니다. 하둡 클러스터를 운영한다는건 기본적으로 하둡 클러스터 내에 엄청나게 큰 데이터들이 있다는 것을 의미하고, 동시에 그 거대한 데이터들에 대한 여러 작업들이 24시간 수행되고 있다는 것을 의미하기 때문입니다.
 
 즉, 기본적으로 상단한 리소스를 잡아먹고있다는 것이죠. 그런데 동시에 밸런싱 작업도 상당히 많은 리소스를 잡아먹기때문에, 기존의 작동중인 작업들에 영향을 최소한으로 미칠수 있도록 적당한 리소스를 배분하는 것은 상당히 중요한 문제입니다. 이와 관련된 하둡 밸런싱 옵션은 아래와 같습니다.
+
+| 옵션 | 설명 |
+| --- | --- |
+| -policy <policy> | blockpool/datanode 중 하나의 정책으로 hdfs balance를 수행한다. ‘datanode’는 각 노드들의 사용량을 balancing하는 것이라면, blockpool은 각 node의 pool까지 balancing하는 것이다. 기본값은 datanode이다. |
+| -threshold <threshold> | 1.0~100.0 사이의 수를 입력하여 어느 정도까지 노드간 밸런싱을 수행할 것인지를 설정한다. 기본값은 10으로 각 노드들을 10% 미만으로 차이가 날 때까지 밸런싱을 수행한다 |
+| -blockpools <comma-seperated list of block pool ids> | HDFS가 명시된 리스트의 BOLCKPOOL만 밸런싱 수행한다. 만약 리스트가 비워져 있다면 모든 blockpool을 밸런싱한다. 기본값은 공백이다. |
+| -include [-f <hosts-file> | <comma=seperated list of hosts>] | 밸런싱을 수행할 호스트를 명시한다. -f옵션으로 호스트들의 리스트를 가지고 있는 파일을 지정하던가, 콤마로 구분된 여러 호스트들을 지정한다. 만약 공백이라면 모든 데이터노드에 대해서 진행하며 기본값을 공백이다. |
+| -exclude [-f <hosts-file> | <comma=seperated list of hosts>] | -include 옵션과 반대로 밴런싱에서 제외할 호스트들만을 입력한다. 공백값은 어떠한 노드들도 제외되지 않는 것이고 기본값은 공백이다. |
+| -idleiterations <idleiterations> | HDFS Balancer가 더이상 밸런싱할 블록이 없을 때까지 반복적으로 Balancer를 수행한다. 기본 값은 5인데, 이동할 블록이 없더라고 5번의 검사를 진행한다. |
+| -runDuringUpgrade | 만약 이 옵션이 추가되어 있다면 HDFS 업그레이드 수행중에 Balancer를 수행한다. 하지만 일반적으로 권고되지 않는 방법이다. 지속적으로 삭제되는 HDFS 블록들이 HDFS 내부 trash 공간을 빠르게 채우기 때문이다. |
 
 더 자세한 내용은 [여기](https://community.cloudera.com/t5/Community-Articles/HDFS-Balancer-2-Configurations-CLI-Options/ta-p/246687)서 확인 할 수 있습니다.
 
@@ -514,13 +543,13 @@ HDFS는 휴지통 기능을 지원합니다. HDFS 상에서 파일들을 지웠�
 
 사실 이런 복잡한 밸런싱 문제들로 인해서 가장 바람직한 하둡 클러스터는 디스크의 용량이 크게 차이가 안나는 노드들로 구성하는 것입니다. 물론 현실의 문제 속에서 그러기에는 쉽지 안습니다.
 
-## 8) Web HDFS REST API
+## 9) Web HDFS REST API
 
 HDFS는 REST API를 사용하여 파일을 조회하고, 생성, 수정, 삭제하는 기능을 제공합니다. 물론 이를위해 하둡 설정이 필요합니다.
 
 자세한 내용은 [공식 홈페이지](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html)에서 확인할 수 있습니다.
 
-## 9) HDFS 암호화 -KMS(Key Management Server)
+## 10) HDFS 암호화 -KMS(Key Management Server)
 
 하둡 KMS는 KeyProvider API를 기반으로 하는 암호화 키 관리 서버입니다. Key Management Server라는 별도의 서버를 띄워서 암호화를 진행합니다.
 
