@@ -12,9 +12,9 @@ categories: [Airflow]
 
 해당 포스팅에서 사용될 인스턴스의 정보는 아래와 같습니다.
 
-> **인스턴스(airflow-test) 정보**
-OS : Ubuntu 18.04
-CPU : 2core
+> **인스턴스(airflow-test) 정보**   \
+OS : Ubuntu 18.04   \
+CPU : 2core   \
 Ram : 4GB
 >
 
