@@ -1,6 +1,6 @@
 ---
 title: 문법정리 1. python에서의 continue와 pass
-categories: [ETC]
+categories: [ETC, 문법정리]
 ---
 
 알고리즘을 공부하다보니 반복문에서 예외를 판별하는 조건문을 적용할 때, continue가 사용되는 것을 목격했다.
