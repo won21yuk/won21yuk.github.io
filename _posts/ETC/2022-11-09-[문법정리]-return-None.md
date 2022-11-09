@@ -1,5 +1,5 @@
 ---
-title: 문법정리 2. python에서의 continue와 pass
+title: 문법정리 2. return None
 categories: [ETC, 문법정리]
 ---
 알고리즘을 문제를 풀다가 마주한 return None.
@@ -16,8 +16,7 @@ return None이 있던 없던 함수 자체가 작동하는데는 별 영향을 �
 def return_test(n):
 	if n == 1:
 		n += 1
- return None
-
+  return None
 t = return_test(5)
 
 print(t)
@@ -34,7 +33,7 @@ print(t)
 def return_test(n):
 	if n == 1:
 		n += 1
- return None
+  return None
 
 t = return_test(1)
 
