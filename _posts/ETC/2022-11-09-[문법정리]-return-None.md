@@ -163,8 +163,8 @@ def binary_search(array, target, start, end):
 
 
 
-n , target = list(map(int, input().split())
-array = list(map(int, input().split())
+n , target = list(map(int, input().split()))
+array = list(map(int, input().split()))
 
 result = binary_search(array, target, 0, n-1)
 if result == None:
