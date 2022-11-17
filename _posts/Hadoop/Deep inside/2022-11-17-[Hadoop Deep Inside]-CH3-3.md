@@ -284,7 +284,7 @@ Hadoop 3.0 이전에는 많은 Hadoop 서비스의 기본 포트가 Linux 임시
 
 [Hadoop 3에서 Erasure Coding이란 - 2 (tistory.com)](https://joonyon.tistory.com/entry/Hadoop-3%EC%97%90%EC%84%9C-Erasure-Coding%EC%9D%B4%EB%9E%80-2?category=760357)
 
-[[Hadoop] 3.x 버전의 Erasure Coding 설명 :: 눈가락★ (tistory.com)](https://eyeballs.tistory.com/239)
+[Hadoop 3.x 버전의 Erasure Coding 설명 :: 눈가락★ (tistory.com)](https://eyeballs.tistory.com/239)
 
 [https://hadoop.apache.org/docs/current/](https://hadoop.apache.org/docs/current/)
 
