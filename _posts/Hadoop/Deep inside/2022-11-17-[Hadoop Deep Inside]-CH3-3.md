@@ -23,7 +23,7 @@ HDFS의 Replication에는 블록 크기와 Replication Factor(RF, 복제계수)�
 
 HDFS에 들어온 데이터는 우선 여러개의 블록으로 나누어집니다. 그리고 블록수는 할당된 블록 크기가 얼마냐에 따라 달라집니다. 블록이 생성되면 HDFS 클러스터 전체에 복제가 됩니다. 기본 설정을건들지 않았다면 복제본의 수는 3개(원본 1 + 복제본 2)입니다. 이 복제본을 생성함으로서 HDFS는 데이터의 중복성을 얻게 됩니다. 이 중복성은 이후 블록의 유실이 발생했을 때 복원을 가능케하며 HDFS가 fault tolerance를 갖게 합니다.
 
-![Untitled](images/hdfs3-0.png)
+![hdfs3-0](/images/hdfs3-0.png)
 
 위의 그림에서 612MB의 텍스트 파일은 128MB 블록 4개와 100MB블록 1개로 나누어집니다. 복제계수가 기본설정을 따른다면, 5*3 = 15 개의 블록이 만들어집니다. 그리고 이를 저장하기 위해서 612 * 3 = 1836MB의 스토리지가 필요합니다.
 
@@ -31,7 +31,7 @@ HDFS에 들어온 데이터는 우선 여러개의 블록으로 나누어집니�
 
 ## Erasure Coding(EC)
 
-![Untitled](images/hdfs3-1.png)
+![hdfs3-1](/images/hdfs3-1.png)
 
 Erasure Coding은 데이터 보호를 위해 고안된 데이터 저장 방식의 일종입니다. 주로 RAID로 스토리지 시스템을 구성할 때 사용되었습니다.
 
@@ -55,7 +55,7 @@ EC는 어떤 코덱을 사용하느냐와 N,K의 값을 몇으로 하느냐에 �
 
 스토리지 효율성은 패리티 셀에 대한 데이터 셀의 비율인 N/(N+K)라는 식으로 계산할 수 있습니다. 아래의 표는 replication, XOR 및 RS의 fault tolerance와 스토리지 효율성 비교한 내용입니다.
 
-![Untitled](images/hdfs3-2.png)
+![hdfs3-2](/images/hdfs3-2.png)
 
 여기서 주목해야할 건 Three-way replication과 RS(N, K)입니다.
 
@@ -65,7 +65,7 @@ Three-way replication은 HDFS의 기본 값인 RF가 3인 경우를 보여줍니
 
 분산 스토리지 시스템에서는 매우 큰 파일을 관리하기 위해 일반적으로 Logical block이라고 하는 고정된 크기의 논리 바이트 범위로 나눕니다. 그런 다음 이러한 logical block은 클러스터의 storage block에 매핑 되며, 이는 클러스터에 있는 데이터의 물리적인 레이아웃을 반영합니다.
 
-![Untitled](images/hdfs3-3.png)
+![hdfs3-3](/images/hdfs3-3.png)
 
 logical block과 storage block 간의 가장 간단한 매핑방식은 각 logical block을 일대일로 storage block에 매핑하는 contiguous block layout입니다. contiguous layout으로 파일을 읽을 때는 각 storage block을 순서대로 읽는 것 만큼 간단합니다.
 
@@ -81,7 +81,7 @@ block layout 차원에서 스트라이핑은 병럴처리가 가능하기 때문
 
 결국 어떤 block layout을 선택하느냐는 파일의 크기가 가장 중요합니다. 만약 클러스터의 스토리지 사용량이 큰 용량의 데이터에 의해 대부분 사용된다면, 여러개의 작은 파일의 블록을 단일 그룹으로 결합하는 구현문제를 피할 수 있기 때문에 contiguous block layout이 적합합니다. 그러나 클러스터 용량이 작은 파일에 의해 대부분 사용된다면, striped block layout이 스토리지 효율성 측면에서 더 적합한 선택이 됩니다.
 
-![Untitled](images/hdfs3-4.png)
+![hdfs3-4](/images/hdfs3-4.png)
 
 클라우데라의 실증적인 연구에 따르면 HDFS에서 작은 파일들의 클러스터 스토리지 사용량이 적게는 36%에서 많게는 97%까지 차지합니다. 그래서 클라우데라의 엔지니어들은 작은 파일을 처리하는 것이 매우 중요하다고 판단하여 HDFS-EC의 첫 단계로 stiped block layout으로 EC를 지원하도록 했습니다.
 
@@ -113,19 +113,19 @@ striped block layout에서 기억해야할 가장 큰 특징은 스트라이핑�
 
 다시 예시로 돌아가 보면, EC는 1GB의 파일 중 1MB~768MB까지의 셀을 하나의 logical block으로 묶고 769~1024MB의 셀은 또다른 logical block으로 묶어 구분 짓습니다. 여기서 logical block의 구분 원리는 단순히 storage block 6개가 가지는 최대 크기인 128*6=768MB을 기준으로 나누는 것 입니다. 이 기준은 EC정책의 블록 갯수에 따라 달라지기 때문에 같은 예시에서 RS-10-4-1024k면 하나의 logical block이 만들어 지고 RS-3-2-1024k면 3개의 logical block이 만들어 질 겁니다.
 
-![Untitled](images/hdfs3-5.png)
+![hdfs3-5](/images/hdfs3-5.png)
 
 첫번째 logical block은 768개의 데이터 셀을 가지고 있습니다. 이 셀들은 Storage block에 저장하기 전에 EC 정책에 따라 인코딩이 이루어집니다. 6개의 데이터 셀은 하나로 묶여서 3개의 패리티 셀을 생성하고 이 데이터 셀 6개와 패리티 셀 3개는 스트라이프(Stripe)라는 단위로 묶입니다.
 
-![Untitled](images/hdfs3-6.png)
+![hdfs3-6](/images/hdfs3-6.png)
 
 인코딩 작업의 결과 768개의 데이터 셀과 384개의 패리티 셀이 만들어집니다. 이제 데이터 셀은 6개의 Storage block에 나누어 저장되고 패리티 셀은 3개의 Storage block에 저장됩니다. 데이터 셀이 저장된 6개의 Storage block은 이제 데이터 블록이고 패리티 셀이 저장된 3개의 Storage block은 패리티 블록이 됩니다. 이 6개의 데이터 블록과 3개의 패리티 블록은 이제 하나의 block group으로 묶이고 각 블록들은 9개의 데이터 노드에 분산되어 저장됩니다.
 
-![Untitled](images/hdfs3-7.png)
+![hdfs3-7](/images/hdfs3-7.png)
 
 이때 Storage block들은 인덱스를 부여받아 logical block에 매핑됩니다. 이는 네임노드가 데이터노드의 block report를 처리할 때 필요합니다.
 
-![Untitled](images/hdfs3-8.png)
+![hdfs3-8](/images/hdfs3-8.png)
 
 두번째 logical block도 같은 메커니즘입니다. 똑같이 6개의 데이터 블록과 3개의 패리티 블록이 만들어지고 또 하나의 block group으로 묶이고 각 블록들은 9개의 데이터 노드에 분산되어 저장됩니다. 참고로 block group의 storage blcok은 internal block이라고 불리기도 합니다.
 
@@ -141,11 +141,11 @@ HDFS는 이러한 EC의 작동을 지원하기 위해 기존 아키텍쳐들에 
 
 결국 이처럼 네임노드가 블록 ID를 이전보다 더 많이 관리했어야 했었기 때문에 이로 인해 네임노드의 blockMap의 크기가 250~440%까지 비대해지는 문제점이 있었습니다. 그래서 하둡은 3.0버전에 EC를 도입하면서 네임노드의 블록 메타데이터를 관리하기 위해 계층적 블록 명명 프로토콜(hierarchical block naming protocol)을 도입했습니다.
 
-![Untitled](images/hdfs3-9.png)
+![hdfs3-9](/images/hdfs3-9.png)
 
 기존 HDFS는 블록 생성 시간을 기준으로 블록 ID를 순차적으로 할당하지만, 이 프로토콜은 각 블록 ID를 2~3의 섹션으로 나눕니다. Contiguous layout인 경우 2개이고 Striped layout인 경우 3개의 섹션을 갖습니다.
 
-![Untitled](images/hdfs3-10.png)
+![hdfs3-10](/images/hdfs3-10.png)
 
 각 블록 ID는 Block layout을 나타내는 Flag로 시작합니다. 이는 Contiguous layout이면 0 Striped layout이면 1의 값을 갖습니다. Striped layout인 경우, 블록 ID는 뒤이어 두 섹션이 구성되는데 하나는 logical block의 ID를 표시하는 중간 섹션과 logical block의 Storage block의 인덱스를 나타내는 꼬리 섹션입니다. 이를 통해 네임노드는 logical block을 Storage block의 요약본으로 관리할 수 있습니다. 실제로 클라우데라의 실증적인 실험 결과에 따르면, 이 프로토콜을 사용하면 네임노드의 blockMap을 21~71%만 증가시킵니다.
 
@@ -175,7 +175,7 @@ OutputStream으로 확장합니다. 이제 논리 블록과 저장 블록이 분
 
 Replication은 아주 작은 파일의 경우에도 하나의 블록과 복제본 2개를 생성하면 됩니다. 그러나 EC는 정책에 따라 아주 작은 파일도 여러개의 블록과 패리티 블록으로 나누어 저장합니다.
 
-![Untitled](images/hdfs3-11.png)
+![hdfs3-11](/images/hdfs3-11.png)
 
 위의 그림은 파일의 크기에 따른 블록의 수를 보여주는 자료입니다. 128MB 이하의 데이터를 저장하는 경우를 보면, Replication은 블록 단 3개만 생성합니다. 하지만 RS-6-3-1024k로 저장하면 반드시 6개의 블록과 3개의 패리티 블록을 생성해야하기 때문에 총 9개의 블록이 만들어집니다. 물론 Replication은 128*3=384MB의 저장공간을 필요로 하지만, Replication은 128*1.5=192MB의 저장공간만 필요합니다.
 
@@ -191,11 +191,11 @@ Replication은 아주 작은 파일의 경우에도 하나의 블록과 복제�
 
 다행히도 하둡은 인텔의 ISA-L이라는 오픈 소스 지능형 스토리지 가속 라이브러리를 통해 충분한 개선이 가능하도록 지원합니다. 이때문에 EC에서의 RS 알고리즘을 ISA-L을 기반으로하는 알고리즘과 순수 자바라는 두가지 형태로 구현했습니다.
 
-![Untitled](images/hdfs3-12.png)
+![hdfs3-12](/images/hdfs3-12.png)
 
 위 그림은 메모리 내 인코딩/디코딩 벤치마크의 결과입니다. ISA-L은 순수 자바 코더보다 4배 이상의 성능을 보이고 페이스북의 HDFS-RAID 코더와 비교해보면 20배 이상의 차이가 납니다.
 
-![Untitled](images/hdfs3-13.png)
+![hdfs3-13](/images/hdfs3-13.png)
 
 또한 위의 그림은 다양한 코더들을 사용하여 HDFS I/O 성능을 비교한 내용입니다. 순수 자바 코더는 쓰기와 읽기 모두에서 상당히 제한된 수준의 처리량만을 보입니다. 그러나 ISA-L 코더를 사용하면, 뛰어난 CPU 효율성으로 인해 순수 자바 코더보다 압도적으로 빠른 성능을 보입니다. 또한 striped layout으로 인해 클라이언트가 여러 데이터노드와 병렬로 I/O를 수행하여 디스크 드라이브의 모든 대역폭을 활용할 수 있기에 복제 방식보다 성능이 2~3배 향상됩니다.
 
@@ -209,7 +209,7 @@ Replication은 아주 작은 파일의 경우에도 하나의 블록과 복제�
 
 # 2. 다수의 Standby 네임노드
 
-![Untitled](images/hdfs3-14.png)
+![hdfs3-14](/images/hdfs3-14.png)
 
 하둡 2.0에서 HA는 하나의 Active 네임노드와 하나의 Standby 네임노드로 구현합니다. 이 HA 아키텍쳐에서는 단 하나의 네임노드의 장애만을 허용합니다.
 
@@ -221,13 +221,13 @@ Replication은 아주 작은 파일의 경우에도 하나의 블록과 복제�
 
 # 3. Intra-DataNode Balancer
 
-![Untitled](images/hdfs3-15.png)
+![hdfs3-15](/images/hdfs3-15.png)
 
 데이터 노드에 대해서 기억해야할 부분은 데이터 노드는 실제 사용에 있어서 여러개의 디스크로 구성되며 데이터 노드는 이 디스크들을 관리한다는 사실입니다. 정상적인 상황에서 쓰기작업이 발생하면 데이터가 균등하게 분할되기 때문에 디스크의 밸런스에는 문제가 발생하지 않습니다.
 
 그러나 디스크를 추가하거나 교체할 때는 데이터 노드 내의 디스크 밸런스가 왜곡되는 현상이 발생합니다. 이 상황은 이전 2.0에서의 HDFS Balancer로는 컨트롤 할 수 없었습니다.
 
-![Untitled](images/hdfs3-16.png)
+![hdfs3-16](/images/hdfs3-16.png)
 
 그러나 하둡 3.0부터는 CLI에서 hdfs diskbalancer 명령어를 호출하는 것으로 해결이 가능해졌습니다.
 
@@ -235,7 +235,7 @@ Replication은 아주 작은 파일의 경우에도 하나의 블록과 복제�
 
 ## Observer 네임노드
 
-![Untitled](images/hdfs3-17.png)
+![hdfs3-17](/images/hdfs3-17.png)
 
 HDFS HA에서는 Active 네임노드는 모든 클라이언트 요청을 처리하는 역할을 하는 반면, Standby 네임노드는 저널 노드의 edit log를 읽어 네임스페이스에 대한 최신 정보를 유지하고 모든 데이터 노드에서 block report를 수신하여 blockMap을 구성합니다.
 
@@ -247,11 +247,11 @@ Observer 네임노드도 Standby 네임노드와 마찬가지로 네임스페이
 
 ## HDFS 라우터 기반 페더레이션(Router-based Federation)
 
-![Untitled](images/hdfs3-18.png)
+![hdfs3-18](/images/hdfs3-18.png)
 
 이전 버전의 HDFS 페더레이션은 논리적으로 네임 노드와 네임스페이스를 추가하고 데이터 노드를 공유하게 하여 subcluster를 추가하는 것과 같은 아키텍쳐를 가졌습니다. 하둡 3.0(정확하게는 2.9 버전에 처음 등장)에서는 HDFS 라우터라는 역할을 추가하여 물리적인 클러스터 간에 페더레이션이 가능하도록 지원합니다.
 
-![Untitled](images/hdfs3-19.png)
+![hdfs3-19](/images/hdfs3-19.png)
 
 라우터는 네임노드나 데이터노드와 같은 데몬입니다. 공식적으로 subcluster에 함께 배치되도록 권장됩니다. 라우터는 데이터를 직접 저장하지는 않고 클라이언트의 요청이 들어오면 State store에서 매핑 정보를 쿼리하고 해당되는 네임노드에 이를 전달합니다. 그리고 네임노드로부터 데이터를 받아 이를 클라이언트에게 다시 전달해 줍니다. 평소에는 네임노드는 라우터에게 정기적으로 heartbeat를 보내 자신의 상태와 기본정보들을 알리고 라우터는 이를 받아 State store에 하트비트를 보냅니다.
 
@@ -259,23 +259,23 @@ Observer 네임노드도 Standby 네임노드와 마찬가지로 네임스페이
 
 Hadoop 3.0 이전에는 많은 Hadoop 서비스의 기본 포트가 Linux 임시 포트 범위(32768-61000)였습니다. 이로 인해 이러한 서비스는 시작시 다른 응용 프로그램과 충돌하여 바인딩되지 않는 경우가 많았습니다. 따라서 하둡 3.0부터 HDFS의 구성요소들의 기본 포트 번호가 변경되었습니다.
 
-![Untitled](images/hdfs3-20.png)
+![hdfs3-20](/images/hdfs3-20.png)
 
 # Reference
 
 [Introduction to HDFS Erasure Coding in Apache Hadoop - Cloudera Blog](https://blog.cloudera.com/introduction-to-hdfs-erasure-coding-in-apache-hadoop/)
 
-[HDFS Erasure Coding. Reduce storage overhead significantly… | by Prathamesh Nimkar | Towards Data Science](https://towardsdatascience.com/simplifying-hdfs-erasure-coding-9d9588975113)
+[HDFS Erasure Coding. Reduce storage overhead significantly… by Prathamesh Nimkar Towards Data Science](https://towardsdatascience.com/simplifying-hdfs-erasure-coding-9d9588975113)
 
 [HDFS Erasure Coding in Action (slideshare.net)](https://www.slideshare.net/HadoopSummit/hdfs-erasure-coding-in-action)
 
 [HDFS Erasure Coding in Big Data Hadoop - An Introduction - DataFlair (data-flair.training)](https://data-flair.training/blogs/hadoop-hdfs-erasure-coding/)
 
-[Hadoop 3 | What's New in Hadoop 3.0 | Hadoop 3 Enhancements | Edureka](https://www.edureka.co/blog/hadoop-3/)
+[Hadoop 3 | What's New in Hadoop 3.0  Hadoop 3 Enhancements  Edureka](https://www.edureka.co/blog/hadoop-3/)
 
-[업그레이드를 부르는 Hadoop 3.0 신규 기능 살펴보기 | Popit](https://www.popit.kr/%EC%97%85%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%93%9C%EB%A5%BC-%EB%B6%80%EB%A5%B4%EB%8A%94-hadoop-3-0-%EC%8B%A0%EA%B7%9C-%EA%B8%B0%EB%8A%A5-%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0/)
+[업그레이드를 부르는 Hadoop 3.0 신규 기능 살펴보기  Popit](https://www.popit.kr/%EC%97%85%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%93%9C%EB%A5%BC-%EB%B6%80%EB%A5%B4%EB%8A%94-hadoop-3-0-%EC%8B%A0%EA%B7%9C-%EA%B8%B0%EB%8A%A5-%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0/)
 
-[Evaluation of Erasure Coding in Hadoop 3 | Databases at CERN blog](https://db-blog.web.cern.ch/blog/emil-kleszcz/2019-10-evaluation-erasure-coding-hadoop-3)
+[Evaluation of Erasure Coding in Hadoop 3  Databases at CERN blog](https://db-blog.web.cern.ch/blog/emil-kleszcz/2019-10-evaluation-erasure-coding-hadoop-3)
 
 [대규모 스토리지에서 HDFS Erasure Coding을 사용할 때의 기술적 과제 - 2021 Korean version - - YouTube](https://www.youtube.com/watch?v=ibmcAQzk5eQ&t=787s&ab_channel=LINEDevelopers)
 
@@ -285,6 +285,6 @@ Hadoop 3.0 이전에는 많은 Hadoop 서비스의 기본 포트가 Linux 임시
 
 [https://hadoop.apache.org/docs/current/](https://hadoop.apache.org/docs/current/)
 
-[HDFS Migration from 2.7 to 3.3 and enabling Router Based Federation (RBF) in production #ACAH2020 | ドクセル (docswell.com)](https://www.docswell.com/s/ydnjp/K46LNZ-2020-10-06-140434)
+[HDFS Migration from 2.7 to 3.3 and enabling Router Based Federation (RBF) in production #ACAH2020  ドクセル (docswell.com)](https://www.docswell.com/s/ydnjp/K46LNZ-2020-10-06-140434)
 
 [HDFS3核心特性之Router初识(一) (imbajin.com)](http://imbajin.com/2020-05-04-HDFS3%E6%A0%B8%E5%BF%83%E7%89%B9%E6%80%A7%E4%B9%8BRouter%E5%88%9D%E8%AF%86%E4%B8%80/)
