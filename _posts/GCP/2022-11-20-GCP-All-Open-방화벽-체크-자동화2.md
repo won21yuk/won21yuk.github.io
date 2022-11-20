@@ -23,7 +23,7 @@ Composer 1은 클러스터 내의 노드의 수평확장을 수동으로 처리�
 
 ![composer3](/images/composer-firewall-check3.png)
 
-다음은 airflow 옵션을 설정해줘야합니다. airflow.cfg파일을 이전에는 직접 열어서 수정했지만 Composer를 사용하면 웹페이지 상에서 모든것이 가능합니다. 최종적으로 제가 한 설정은 아래의 사진과 같습니다. 다만 이것도 5분 이상 걸립니다….
+다음은 airflow 옵션을 설정해줘야합니다. airflow.cfg파일을 이전에는 직접 열어서 수정했지만 Composer를 사용하면 콘솔 상에서 모든것이 가능합니다. 최종적으로 제가 한 설정은 아래의 사진과 같습니다. 다만 이것도 5분 이상 걸립니다….
 
 ![composer4](/images/composer-firewall-check4.png)
 
@@ -133,7 +133,7 @@ GCS의 버켓들 중 dags 폴더와 utils 폴더만 sync 되도록 설정했습�
 
 ![composer14](/images/composer-firewall-check14.png)
 
-그리고 유형을 Cloud build 구성파일로 변경하고 대체변수에는 _GCS_BUCKET을 넣어주면 됩니다. 설정은 끝납니다.
+그리고 유형을 Cloud build 구성파일로 변경하고 대체변수에는 _GCS_BUCKET을 넣어주면 됩니다. 그러면 설정은 끝납니다.
 
 ![composer15](/images/composer-firewall-check15.png)
 
@@ -155,7 +155,7 @@ GCS의 버켓들 중 dags 폴더와 utils 폴더만 sync 되도록 설정했습�
 
 [Cloud Composer 버전 관리 개요  |  Google Cloud](https://cloud.google.com/composer/docs/composer-2/composer-versioning-overview)
 
-[[Cloud Composer]Cloud Composer 1과 2의 차이점은 무엇인가요? : BESPIN GLOBAL Support Portal](https://support.bespinglobal.com/ko/support/solutions/articles/73000588870-cloud-composer-1%EA%B3%BC-2%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80%EC%9A%94-)
+[Cloud Composer 1과 2의 차이점은 무엇인가요? : BESPIN GLOBAL Support Portal](https://support.bespinglobal.com/ko/support/solutions/articles/73000588870-cloud-composer-1%EA%B3%BC-2%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80%EC%9A%94-)
 
 [GCP Composer를 Git repo에 연동 (tistory.com)](https://burning-dba.tistory.com/152)
 
