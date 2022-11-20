@@ -127,7 +127,7 @@ options:
   logging: CLOUD_LOGGING_ONLY
 ```
 
-GCS의 버켓들 중 dags 폴더와 utils 폴더만 sync 되도록 설정했습니다. 그리고 이 파일을 repo의 최상위 경로에 위치시키면 됩니다.
+GCS의 bucket에서  dags 폴더와 utils 폴더만 sync 되도록 설정했습니다. 그리고 이 파일을 repo의 최상위 경로에 위치시키면 됩니다.
 
 다음은 cloud build의 설정을 할 차례입니다. 일단 트리거를 만들어줘야합니다. 소스 - 저장소 - 새 저장소의 연결에 들어가서 자신의 github repo와 연결해주면 됩니다.
 
