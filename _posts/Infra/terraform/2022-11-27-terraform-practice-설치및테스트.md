@@ -9,7 +9,7 @@ categories: [Infra, Terrform]
 
 테라폼 홈페이지에 가면 맥 OS, 윈도우 OS, LINUX에서 설치하는 방법이 상세하게 나와있다. 난 윈도우를 사용하기 때문에 공식홈페이지 안내에 따라 Chocolatey 패키지 매니저 설치를 우선 진행한다.
 
-```cmd
+```text
 # in cmd
 
 # 관리자의 권한으로 CMD창을 키고 입력
@@ -22,7 +22,7 @@ choco -V
 
 Chocolatey를 설치하고 나면 이를 통해 테라폼을 설치할 수 있다.
 
-```cmd
+```text
 choco install terraform
 ```
 
@@ -68,7 +68,7 @@ GCP와 테라폼을 연동하기 위해서는 GCP Project를 하나 있어야하
 
 마지막으로 테라폼은 자체 작업 디렉토리를 기준으로 작동하기 때문에 관련 디렉토리를 생성하고 tf파일을 생성해줘야한다.
 
-```cmd
+```text
 mkdir learn-terraform-gcp
 cd learn-terraform-gcp
 copy con main.tf
