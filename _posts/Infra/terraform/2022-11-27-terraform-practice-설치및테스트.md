@@ -34,7 +34,7 @@ choco install terraform
 
 ![terraform-practice-tutorial1](/images/terraform-practice-tutorial1.png)
 
-GCP와 테라폼을 연동하기 위해서는 GCP Project를 하나 있어야하고, GCE API가 활성화 되어 있어야하며, GCP 서비스 계정 키가 필요하다. 앞의 두개는 GCP를 사용해봤다면 익숙할 것이기 때문에 넘어가고 서비스 계정 키를 만드는 것만 해보겠다.
+GCP와 테라폼을 연동하기 위해서는 GCP Project가 하나 있어야하고, GCE API가 활성화 되어 있어야하며, GCP 서비스 계정 키가 필요하다. 앞의 두개는 GCP를 사용해봤다면 익숙할 것이기 때문에 넘어가고 서비스 계정 키를 만드는 것만 해보겠다.
 
 콘솔에 있는 검색창에 service account를 치면 서비스 계정 페이지로 바로 이동이 가능하다.
 
