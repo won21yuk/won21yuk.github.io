@@ -1,6 +1,6 @@
 ---
 title: Terraform practice - 구성변경
-categories: [Infra, Terrform]
+categories: [Infra, Terraform]
 ---
 
 이번 포스팅에서는 인프라 구성을 변경할 것이고, 테라폼 프로젝트에 이 변화를 어떻게 적용하는지를 학습할 것이다.
