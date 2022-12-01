@@ -93,7 +93,7 @@ resource "google_compute_instance" "vm_instance" {
 
 ![terraform-tutorial2-3](/images/terraform-tutorial2-3.png)
 
-# ****destructive change****
+# destructive change
 
 destructive change는 프로바이더가 기존 리소스를 업데이트 하지않고 교체하는 변경을 의미한다. 이는 보통 클라우드 프로바이더가 구성에 명시된 방식으로 리소스를 업데이트하는 것을 지원하지 않기 때문에 발생한다.
 
