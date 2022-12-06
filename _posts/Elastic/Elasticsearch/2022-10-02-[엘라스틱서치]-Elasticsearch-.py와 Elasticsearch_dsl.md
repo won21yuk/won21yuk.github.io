@@ -1,5 +1,5 @@
 ---
-title: 엘라스틱서치2. Elasticsearch-.py와 Elasticsearch_dsl
+title: 엘라스틱서치 - Elasticsearch-.py와 Elasticsearch_dsl
 categories: [Elastic, Elasticsearch]
 ---
 

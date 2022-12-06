@@ -1,5 +1,5 @@
 ---
-title: 로그스태시 1. @timestamp
+title: 로그스태시 - @timestamp
 categories: [Elastic, Logstash]
 ---
 
