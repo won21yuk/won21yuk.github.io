@@ -71,7 +71,7 @@ terraform.tfvars 파일을 만들어 아래의 값을 기입한다.
 # terrafor.tfvars
 
 project = "terraform-practice-369907"
-credentials_file = "../../../../../Users/by_wh/Downloads/terraform-practice-369907-098e7b100728.json"
+credentials_file = "terraform-practice-369907-098e7b100728.json"
 ```
 
 한가지 주의해야할 건 terraform.tfvars 파일에는 credentail 값과 같은 민감한 내용이 담길 수도 있기 때문에 기본적으로 커밋하지 않는 것이 좋다.
