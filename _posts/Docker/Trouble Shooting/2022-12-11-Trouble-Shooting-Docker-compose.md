@@ -1,5 +1,5 @@
 ---
-title: Trouble Shooting - ERROR: Version in "./docker-compose.yml" is unsupported.
+title: Trouble Shooting - 'ERROR: Version in "./docker-compose.yml" is unsupported.'
 categories: [Docker, Trouble Shooting]
 ---
 
