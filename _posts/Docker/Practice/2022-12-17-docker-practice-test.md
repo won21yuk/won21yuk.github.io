@@ -136,4 +136,4 @@ show collections; # messages
 db.messages.find();
 ```
 
-![docker-practice-test](/imgaes/docker-practice-test.png)
+![docker-practice-test](/images/docker-practice-test.png)
