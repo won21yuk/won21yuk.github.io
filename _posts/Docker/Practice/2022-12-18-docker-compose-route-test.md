@@ -27,11 +27,15 @@ docker compose 파일은 `docker compose up` 이라는 커맨드로 실행가능
 
 그럼 docker compose dir 디렉토리에서는 어떨까?
 
-실행해보면 최상위에 위치한 docker compose 파일이 똑같이 실행된다. 이를 확장해서 test1~4 디렉토리로 이동해서 `docker compose up` 커맨드를 실행해도 마찬가지이다.
+실행해보면 최상위에 위치한 docker compose 파일이 똑같이 실행된다. 그런데 이를 확장해서 test1~4 디렉토리로 이동해서 `docker compose up` 커맨드를 실행하면 조금 다르다.
 
-그럼 내가 현재 위치해 있는 곳은 docker compose 커맨드를 실행시킬 때 전혀 고려사항이 아니며, 결국 중요한건 루트에 가장 가까운 **최상위에 위치한 docker compose 파일이 디폴트로 실행**된다고 볼 수 있다.
+test2와 test4에서는 최상위에 위치한 docker compose 파일이 실행되지만, test1과 test3 디렉토리에서는 해당 파일에 위치한 docker compose 파일이 실행된다.
 
-그럼 각기 다른 디렉토리에 저장된 docker compose 파일은 실행할 수 없는 걸까?
+차이를 보면 test2,4 에서는 docker compose 파일 이름이 docker-compose.yml이지만 test1,3은 그렇지 않다.
+
+그럼 내가 현재 위치해 있는 곳은 docker compose 커맨드를 실행시킬 때 고려사항임이 확실하며 파일의 이름 또한 중요한 고려사항임을 알 수 있다.
+
+그런데 각기 다른 디렉토리에 저장된 docker compose 파일은 바로 실행할 수 없는 걸까?
 
 ```python
 Usage:  docker compose [OPTIONS] COMMAND
@@ -94,7 +98,7 @@ Commands:
 
 # 파일이름은 반드시 docker-compose.yml 이여야하나?
 
-한가지 더 궁금한 점은 yml파일의 이름을 반드시 docker-compose 형태로 작성해야하는 가 하는 부분이였다. 최상위에 위치한 docker compose 파일을 인식한다는 게 사실은 docker-compsoe.yml 이라는 파일을 디폴트로 인식하게끔 되어 있는 것이 아닐까 하는 생각이 들었기 때문이다.
+한가지 더 궁금한 점은 yml파일의 이름을 반드시 docker-compose 형태로 작성해야하는가 하는 부분이였다. 앞선 test1,3에 위치한 docker compose 파일을 인식한다는 게 사실은 docker-compsoe.yml 이라는 파일을 디폴트로 인식하게끔 되어 있는 것이 아닐까 하는 생각이 들었기 때문이다.
 
 ## 테스트 환경 구축
 
