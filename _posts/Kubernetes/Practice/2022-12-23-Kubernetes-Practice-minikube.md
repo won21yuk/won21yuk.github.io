@@ -17,7 +17,7 @@ categories: [Kubernetes, Practice]
 
 ![kube-practice-minikube1](/images/kube-practice-minikube1.png)
 
-내가 사용할 gcp 인스턴스는 이전에 docker 실습을 진행했었기 때문에 이를 활용해 docker 기반으로 minikube를 사용할 계획이다. 따라서 아래에 적힌 minikube 설치 과정에는 docker는 기본적으로 설치되어 있다는 가정하에서의 내용이다.
+내가 사용할 gcp 인스턴스는 이전에 docker 실습을 진행했었기 때문에 이를 활용해 docker 기반으로 minikube를 사용할 계획이다. 따라서 아래에 적힌 minikube 설치 과정은 docker가 기본적으로 설치되어 있다는 가정하에서의 내용이다.
 
 ```python
 # kubectl 설치(kubernetes용 CLI 도구)
