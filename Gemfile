@@ -16,8 +16,7 @@ install_if -> { RUBY_PLATFORM =~ %r!mingw|mswin|java! } do
 end
 
 # Performance-booster for watching directories on Windows
-# gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
-gem "jekyll-sass-converter", "~> 2.0"
+gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
 
 
 # Jekyll <= 4.2.0 compatibility with Ruby 3.0
