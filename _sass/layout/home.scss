@@ -4,7 +4,7 @@
 
 .pagination {
   color: var(--btn-patinator-text-color);
-  font-family: Lato, sans-serif;
+  font-family: 'Lato', sans-serif;
 
   a:hover {
     text-decoration: none;
@@ -49,8 +49,9 @@
     &:last-child .page-link {
       border-radius: 50%;
     }
-  } /* .page-item */
-} /* .pagination */
+  } // .page-item
+
+} // .pagination
 
 #post-list {
   margin-top: 1rem;
@@ -82,19 +83,6 @@
       em {
         @extend %normal-font-style;
       }
-
-      .pin {
-        i {
-          -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-          padding-left: 3px;
-          color: var(--pin-color);
-        }
-
-        span {
-          display: none;
-        }
-      }
     }
 
     .post-content {
@@ -112,8 +100,21 @@
         -webkit-box-orient: vertical;
       }
     }
-  } /* .post-preview */
-} /* #post-list */
+
+    .pin {
+      > i {
+        transform: rotate(45deg);
+        padding-left: 3px;
+        color: var(--pin-color);
+      }
+
+      > span {
+        display: none;
+      }
+    }
+
+  } // .post-preview
+} // #post-list
 
 /* Hide SideBar and TOC */
 @media all and (max-width: 830px) {
@@ -124,7 +125,9 @@
       &:not(:first-child):not(:last-child) {
         display: none;
       }
+
     }
+
   }
 }
 
@@ -162,12 +165,15 @@
         width: 2rem;
         height: 2rem;
       }
+
     }
 
     .page-index {
       display: none;
     }
-  } /* .pagination */
+
+  } // .pagination
+
 }
 
 /* Panel hidden */

@@ -2,27 +2,29 @@
  * Expand or close the sidebar in mobile screens.
  */
 
-$(function () {
-    const sidebarUtil = (function () {
-        const ATTR_DISPLAY = "sidebar-display";
-        let isExpanded = false;
-        const body = $("body");
+$(function() {
 
-        return {
-            toggle() {
-                if (isExpanded === false) {
-                    body.attr(ATTR_DISPLAY, "");
-                } else {
-                    body.removeAttr(ATTR_DISPLAY);
-                }
+  const sidebarUtil = (function () {
+    const ATTR_DISPLAY = "sidebar-display";
+    let isExpanded = false;
+    const body = $("body");
 
-                isExpanded = !isExpanded;
-            }
-        };
+    return {
+      toggle() {
+        if (isExpanded === false) {
+          body.attr(ATTR_DISPLAY, "");
+        } else {
+          body.removeAttr(ATTR_DISPLAY);
+        }
 
-    }());
+        isExpanded = !isExpanded;
+      }
+    };
 
-    $("#sidebar-trigger").click(sidebarUtil.toggle);
+  }());
 
-    $("#mask").click(sidebarUtil.toggle);
+  $("#sidebar-trigger").click(sidebarUtil.toggle);
+
+  $("#mask").click(sidebarUtil.toggle);
+
 });

@@ -8,31 +8,37 @@
 html {
   @media (prefers-color-scheme: light) {
     &:not([data-mode]),
-    &[data-mode="light"] {
+    &[data-mode=light] {
       @include light-syntax;
     }
 
-    &[data-mode="dark"] {
+    &[data-mode=dark] {
       @include dark-syntax;
     }
   }
 
   @media (prefers-color-scheme: dark) {
     &:not([data-mode]),
-    &[data-mode="dark"] {
+    &[data-mode=dark] {
       @include dark-syntax;
     }
 
-    &[data-mode="light"] {
+    &[data-mode=light] {
       @include light-syntax;
     }
   }
 }
 
-/* -- code snippets -- */
+/* -- Codes Snippet -- */
+
+$code-radius: 6px;
 
 %code-snippet-bg {
   background: var(--highlight-bg-color);
+}
+
+%code-snippet-radius {
+  border-radius: $code-radius;
 }
 
 %code-snippet-padding {
@@ -42,7 +48,7 @@ html {
 
 .highlighter-rouge {
   @extend %code-snippet-bg;
-  @extend %rounded;
+  @extend %code-snippet-radius;
 
   color: var(--highlighter-rouge-color);
   margin-top: 0.5rem;
@@ -50,7 +56,7 @@ html {
 }
 
 .highlight {
-  @extend %rounded;
+  @extend %code-snippet-radius;
   @extend %code-snippet-bg;
 
   @at-root figure#{&} {
@@ -81,21 +87,24 @@ html {
     text-align: right;
     color: var(--highlight-lineno-color);
     -webkit-user-select: none;
+    -khtml-user-select: none;
     -moz-user-select: none;
+    -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
   }
 
   /* set the dollar sign to non-selectable */
   .gp {
-    -webkit-user-select: none;
-    -moz-user-select: none;
     user-select: none;
   }
+
 } /* .highlight */
 
 code {
   -webkit-hyphens: none;
+  -ms-hyphens: none;
+  -moz-hyphens: none;
   hyphens: none;
 
   &.highlighter-rouge {
@@ -143,15 +152,16 @@ td.rouge-code {
     border-bottom: none !important;
     pointer-events: none;
   }
+
 }
 
 /* Hide line numbers for default, console, and terminal code snippets */
 div {
-  &[class^="highlighter-rouge"],
-  &.nolineno,
+  &[class^='highlighter-rouge'],
   &.language-plaintext.highlighter-rouge,
   &.language-console.highlighter-rouge,
-  &.language-terminal.highlighter-rouge {
+  &.language-terminal.highlighter-rouge,
+  &.nolineno {
     pre.lineno {
       display: none;
     }
@@ -167,6 +177,8 @@ div {
 
   $code-header-height: 2.25rem;
 
+  border-top-left-radius: $code-radius;
+  border-top-right-radius: $code-radius;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -218,9 +230,9 @@ div {
   /* clipboard */
   button {
     @extend %cursor-pointer;
-    @extend %rounded;
 
     border: 1px solid transparent;
+    border-radius: $code-radius;
     height: $code-header-height;
     width: $code-header-height;
     padding: 0;
@@ -240,10 +252,6 @@ div {
       }
     }
 
-    &:focus {
-      outline: none;
-    }
-
     &:not([timeout]):hover {
       background-color: rgba(128, 128, 128, 0.37);
 
@@ -251,12 +259,18 @@ div {
         color: white;
       }
     }
+
+    &:focus {
+      outline: none;
+    }
+
   }
+
 }
 
 @media all and (max-width: 576px) {
   .post-content {
-    > div[class^="language-"] {
+    > div[class^='language-'] {
       @include ml-mr(-1.25rem);
 
       border-radius: 0;
