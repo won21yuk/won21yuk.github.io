@@ -1,6 +1,6 @@
 ---
 title: Kubernetes - 컨테이너 오케스트레이션(Container Orchestration)
-categories: [Kubernetes, Notion]
+categories: [Kubernetes, k8s Notion]
 ---
 
 # 컨테이너 이전의 시대

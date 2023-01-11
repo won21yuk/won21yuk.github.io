@@ -1,6 +1,6 @@
 ---
 title: Kubernetes - Replicaset
-categories: [Kubernetes, Notion]
+categories: [Kubernetes, k8s Notion]
 ---
 
 # Replicaset이란?

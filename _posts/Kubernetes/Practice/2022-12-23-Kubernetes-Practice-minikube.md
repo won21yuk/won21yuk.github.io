@@ -1,6 +1,6 @@
 ---
 title: Kubernetes Practice - minikube 설치 및 테스트
-categories: [Kubernetes, Practice]
+categories: [Kubernetes, k8s Practice]
 ---
 
 쿠버네티스를 운영환경에 설치하려면 최소 3대의 마스터 서버와 컨테이너 배포를 위한 n개의 워커서버가 필요하다. 이러한 구성 작업을 직접 하는 것은 꽤나 복잡하고 만약 퍼블릭 클라우드 서비스를 이용한다고 해도 각 서비스마다 사용법이 다 다르기 때문에 첫 학습을 시작하는 시점에서 이를 해내기는 어렵다. 따라서 간단하게 단일노드에 마스터와 워커를 띄워서 실습환경을 구축하도록 한다.

@@ -1,6 +1,6 @@
 ---
 title: Docker Practice - 도커 설치 및 테스트
-categories: [Docker, Practice]
+categories: [Docker, Docker Practice]
 ---
 
 실습은 Centos7이 설치된 GCP 인스턴스로 진행하며 root 계정을 사용합니다.

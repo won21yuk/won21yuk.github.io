@@ -1,6 +1,6 @@
 ---
 title: Kubernetes - Deployment
-categories: [Kubernetes, Notion]
+categories: [Kubernetes, k8s Notion]
 ---
 
 # Deployment란?

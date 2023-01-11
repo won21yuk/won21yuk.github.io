@@ -1,6 +1,6 @@
 ---
 title: Trouble Shooting - ERROR Version in "./docker-compose.yml" is unsupported.
-categories: [Docker, Trouble Shooting]
+categories: [Docker, Docker Trouble Shooting]
 ---
 
 docker-compose 커맨드를 실행시키려는 중에 에러가 하나 발생했다.

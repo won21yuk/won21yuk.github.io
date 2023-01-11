@@ -1,6 +1,6 @@
 ---
 title: Docker Practice - 도커 컴포즈 커맨드 파일 우선순위 테스트
-categories: [Docker, Practice]
+categories: [Docker, Docker Practice]
 ---
 
 # 도커 컴포즈 파일이 여러개 있다면 무엇을 먼저 실행할까? 아니면 모두 실행될까?

@@ -1,6 +1,6 @@
 ---
 title: Trouble Shooting - found character that cannot start any token
-categories: [Docker, Trouble Shooting]
+categories: [Docker, Docker Trouble Shooting]
 ---
 # 에러 : "yaml: line 3: found character that cannot start any token"
 

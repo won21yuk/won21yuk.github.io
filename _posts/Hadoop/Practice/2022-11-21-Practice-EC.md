@@ -1,6 +1,6 @@
 ---
 title: Hadoop Practice - Erasure Coding(EC)
-categories: [Hadoop, Practice]
+categories: [Hadoop, Hadoop Practice]
 ---
 
 # 개요
