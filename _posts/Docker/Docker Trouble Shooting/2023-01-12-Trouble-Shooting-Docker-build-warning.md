@@ -179,10 +179,10 @@ CMD ["python", "tweepy-test.py"]
 
 # Reference
 
-[Multi-stage builds | Docker Documentation](https://docs.docker.com/build/building/multi-stage/)
+[Multi-stage builds - Docker Documentation](https://docs.docker.com/build/building/multi-stage/)
 
 [python - WARNING: Running pip as the 'root' user - Stack Overflow](https://stackoverflow.com/questions/68673221/warning-running-pip-as-the-root-user)
 
-[Docker Best Practices for Python Developers | TestDriven.io](https://testdriven.io/blog/docker-best-practices/)
+[Docker Best Practices for Python Developers - TestDriven.io](https://testdriven.io/blog/docker-best-practices/)
 
 [[16.04] debconf: delaying package configuration, since apt-utils is not installed · Issue #319 · phusion/baseimage-docker (github.com)](https://github.com/phusion/baseimage-docker/issues/319)
