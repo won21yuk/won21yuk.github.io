@@ -28,10 +28,10 @@ CMD ["python", "tweepy-test"]
 
 # Warning Message 1
 
-<aside>
+---
 💡 Warning : Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: [https://pip.pypa.io/warnings/venv](https://pip.pypa.io/warnings/venv)
+---
 
-</aside>
 
 해당 경고 메세지는 ‘*루트 유저로 pip를 실행시키는 것이 권한의 손상을 초래하거나 시스템 패키지 매니저와의 동작에서 충돌을 초래할 수 있다*’고 한다.
 
@@ -85,10 +85,9 @@ CMD ["python", "tweepy-test.py"]
 
 # Warning Message 2
 
-<aside>
+---
 💡 WARNING: You are using pip version 22.0.4; however, version 22.3.1 is available. You should consider upgrading via the '/usr/local/bin/python -m pip install --upgrade pip' command.
-
-</aside>
+---
 
 두번째 경고 메세지는 ‘현재 pip 버전을 22.0.4버전이지만 상위 버전인 22.3.1이 사용가능하다’는 내용이다. 이를위해 pip 업그래이드를 고려하라는 메세지도 출력된다.
 
